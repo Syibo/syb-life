@@ -20,7 +20,7 @@
 
               <div class="bg02">
                   <ul class="categoryList01">
-                      <li> <span>投資信託・投信積立を始める</span> </li>
+                      <li> <span>投資・投信積立を始める</span> </li>
                       <li> <span>投資信託の選び方・セレクション</span> </li>
                       <li> <span>iDeCo（イデコ）を知る</span> </li>
                       <li> <span>NISA/つみたてNISAを知る</span> </li>
