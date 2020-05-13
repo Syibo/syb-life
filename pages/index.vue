@@ -1,43 +1,18 @@
 <template>
   <div class="container">
-    <div>
-      <!-- <logo /> -->
-<!--       <h1 class="title">
-        nuxt-sbb
-      </h1> -->
-      <h2 class="subtitle">
-        My wicked Nuxt.js project
-      </h2>
-      <div v-for="(item, index) in list" :key="index">
-        {{ item.link }}
-      </div>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+    <Menu></Menu>
   </div>
 </template>
 
 <script>
 import Logo from '~/components/Logo.vue'
+import Menu from '~/components/menu.vue'
 import axios from 'axios'
 
 export default {
   components: {
-    Logo
+    Logo,
+    Menu
   },
   data() {
     return {
@@ -75,12 +50,11 @@ export default {
 
 <style>
 .container {
-  margin: 0 auto;
+  /* margin: 0 auto;
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  text-align: center;
+  align-items: center; */
 }
 
 .title {

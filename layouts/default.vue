@@ -16,6 +16,15 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 }
+body {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: left;
+}
+li {
+  list-style-type: none;
+}
 
 *,
 *:before,
