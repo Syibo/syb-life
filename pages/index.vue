@@ -8,7 +8,7 @@
       <h2 class="subtitle">
         My wicked Nuxt.js project
       </h2>
-      <div v-for="(item, index) in list">
+      <div v-for="(item, index) in list" :key="index">
         {{ item.link }}
       </div>
       <div class="links">
