@@ -61,4 +61,14 @@ li {
   color: #fff;
   background-color: #35495e;
 }
+.contents {
+	margin-left: 380px;
+  height: 1500px;
+	background: #E5F8F3;
+}
+@media screen and (max-width: 767px) {
+	.contents {
+		margin-left: 0;
+	}
+}
 </style>

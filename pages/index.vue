@@ -1,18 +1,19 @@
 <template>
   <div class="container">
     <Menu></Menu>
+    <Content></Content>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
 import Menu from '~/components/menu.vue'
+import Content from '~/components/content.vue'
 import axios from 'axios'
 
 export default {
   components: {
-    Logo,
-    Menu
+    Menu,
+    Content
   },
   data() {
     return {
@@ -49,13 +50,6 @@ export default {
 </script>
 
 <style>
-.container {
-  /* margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center; */
-}
 
 .title {
   font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,

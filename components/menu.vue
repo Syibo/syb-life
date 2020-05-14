@@ -78,6 +78,12 @@
     transition: all 0.3s ease;
     background: #3AD6B2;
 }
+@media screen and (max-width: 767px) {
+	.menuG {
+		display: none;
+	}
+}
+
 .vessel {
     height: 100%;
     overflow: hidden;
@@ -91,10 +97,6 @@
 }
 .menuG > .vessel::-webkit-scrollbar-thumb {
 	background: #25C49F;
-}
-.NuxtLogo {
-  animation: 1s appear;
-  margin: auto;
 }
 .bg01 {
     background: #29C4A0;
@@ -270,14 +272,5 @@
     height: 45px;
     background: url(../assets/images//btn_sns_tw_02.svg) no-repeat;
     background-size: 45px 45px;
-}
-
-@keyframes appear {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 </style>
