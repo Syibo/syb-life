@@ -1,13 +1,12 @@
 <template>
 <div>
-  <div class="trigger" @click="openMenu">
-      <span></span>
-      <span></span>
+  <div class="trigger01" @click="openMenu">
+	<a href="#" :class="menuGive ? 'active' : ''">
+		<span :style="{background: menuGive ? 'white' : '#29C4A0'}"></span>
+		<span :style="{background: menuGive ? 'white' : '#29C4A0'}"></span>
+	</a>
   </div>
   <div class="menuG">
-	  <div class="close" @click="closeMenu">
-		  &times;
-	  </div>
       <div class="vessel">
           <div class="inner">
               <div class="bg01">
@@ -87,12 +86,16 @@ export default {
   },
   methods: {
 	  openMenu() {
-		  document.getElementsByClassName('menuG')[0].style.left = 0;
-		  document.getElementsByClassName('trigger')[0].style.visibility = 'hidden';
+		  if (this.menuGive) {
+			  document.getElementsByClassName('menuG')[0].style.left = '-380px';
+		  	  this.menuGive = false;
+		  } else {
+			  document.getElementsByClassName('menuG')[0].style.left = 0;
+		  	  this.menuGive = true;
+		  }
 	  },
 	  closeMenu() {
-		  document.getElementsByClassName('menuG')[0].style.left = '-380px';
-		  document.getElementsByClassName('trigger')[0].style.visibility = 'visible';
+		  
 	  }
   }
 }
@@ -108,23 +111,31 @@ export default {
     transition: all 0.3s ease;
     background: #3AD6B2;
 }
-.menuG .close {
-	position: absolute;
-    top: 0;
-    left: 0;
-    width: 50px;
-    height: 50px;
-    z-index: 10;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: white;
-	font-size: 40px;
-	margin-top: -10px;
-	visibility: hidden;
+.trigger01 {
+	width: 55px;
+	height: 55px;
+	cursor: pointer;
+	position: fixed;
+	top: 10px;
+	left: 20px;
+	z-index: 10;
 }
-.menuG .close span {
-	display: block;
+.trigger01 a {
+    position: relative;
+    display: inline-block;
+
+    width: 17px;
+    height: 11px;
+    color: #3E3E3E;
+    text-decoration: none;
+    word-wrap: break-word;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.trigger01 a span {
+	display: inline-block;
+	background: red;
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -134,44 +145,25 @@ export default {
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
-.menuG .close span:nth-of-type(1) {
-	position: absolute;
+.trigger01 a span:nth-of-type(1) {
+    position: absolute;
     top: 0;
     left: 0;
+}
+.trigger01 a span:nth-of-type(2) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.trigger01 a.active span:nth-of-type(1) {
+    top: 0;
     -webkit-transform: translateY(4px) rotate(-45deg);
     transform: translateY(4px) rotate(-45deg);
 }
-.menuG .close span:nth-of-type(1) {
-	position: absolute;
+.trigger01 a.active span:nth-of-type(2) {
     bottom: 0;
-    left: 0;
     -webkit-transform: translateY(-4px) rotate(45deg);
     transform: translateY(-4px) rotate(45deg);
-}
-.trigger {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 50px;
-    height: 50px;
-    z-index: 10;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    visibility: hidden;
-}
-.trigger span {
-    display: block;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    width: 50%;
-    height: 3px;
-    background: #3AD6B2;
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-    margin-bottom: 5px;
 }
 @media screen and (max-width: 767px) {
 	.menuG {
