@@ -95,13 +95,10 @@ export default {
 		  	  this.menuGive = true;
 		  }
 	  },
-	  closeMenu() {
-		  
-	  }
   }
 }
 </script>
-<style>
+<style scoped>
 .menuG {
     position: fixed;
     top: 0;
@@ -111,6 +108,7 @@ export default {
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
     background: #3AD6B2;
+    z-index: 10;
 }
 .trigger01 {
 	display: none;
@@ -120,7 +118,7 @@ export default {
 	position: fixed;
 	top: 10px;
 	left: 20px;
-	z-index: 10;
+	z-index: 12;
 }
 .trigger01 a {
     position: relative;

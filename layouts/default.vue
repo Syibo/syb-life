@@ -63,12 +63,17 @@ li {
 }
 .contents {
 	margin-left: 380px;
-  height: 1500px;
-	background: #E5F8F3;
 }
 @media screen and (max-width: 767px) {
 	.contents {
 		margin-left: 0;
 	}
+}
+.el-dialog .el-dialog__header {
+  position: fixed;
+  right: 0;
+}
+.el-dialog__close {
+  font-size: 60px;
 }
 </style>
