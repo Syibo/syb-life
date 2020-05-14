@@ -1,5 +1,13 @@
 <template>
+<div>
+  <div class="trigger" @click="openMenu">
+      <span></span>
+      <span></span>
+  </div>
   <div class="menuG">
+	  <div class="close" @click="closeMenu">
+		  &times;
+	  </div>
       <div class="vessel">
           <div class="inner">
               <div class="bg01">
@@ -66,7 +74,29 @@
           </div>
       </div>
   </div>
+</div>
 </template>
+
+<script>
+export default {
+  name: "Menu",
+  data() {
+    return {
+		menuGive: false
+    }
+  },
+  methods: {
+	  openMenu() {
+		  document.getElementsByClassName('menuG')[0].style.left = 0;
+		  document.getElementsByClassName('trigger')[0].style.visibility = 'hidden';
+	  },
+	  closeMenu() {
+		  document.getElementsByClassName('menuG')[0].style.left = '-380px';
+		  document.getElementsByClassName('trigger')[0].style.visibility = 'visible';
+	  }
+  }
+}
+</script>
 <style>
 .menuG {
     position: fixed;
@@ -78,12 +108,82 @@
     transition: all 0.3s ease;
     background: #3AD6B2;
 }
+.menuG .close {
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    z-index: 10;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	font-size: 40px;
+	margin-top: -10px;
+	visibility: hidden;
+}
+.menuG .close span {
+	display: block;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    width: 100%;
+    height: 3px;
+    background: #FFF;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+.menuG .close span:nth-of-type(1) {
+	position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transform: translateY(4px) rotate(-45deg);
+    transform: translateY(4px) rotate(-45deg);
+}
+.menuG .close span:nth-of-type(1) {
+	position: absolute;
+    bottom: 0;
+    left: 0;
+    -webkit-transform: translateY(-4px) rotate(45deg);
+    transform: translateY(-4px) rotate(45deg);
+}
+.trigger {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    visibility: hidden;
+}
+.trigger span {
+    display: block;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    width: 50%;
+    height: 3px;
+    background: #3AD6B2;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    margin-bottom: 5px;
+}
 @media screen and (max-width: 767px) {
 	.menuG {
-		display: none;
+		left: -380px;
+	}
+    .trigger {
+        visibility: visible;
+    }
+	.menuG .close {
+		visibility: visible;
 	}
 }
-
 .vessel {
     height: 100%;
     overflow: hidden;
