@@ -18,44 +18,45 @@
                           <img src="../assets/images/logo_01_w.svg">
                       </div>
                       <p class="tagline01">
-                          <span>お金のこと、</span>
+                          <span>不忘初心</span>
                           <br>
-                          <span>はじめての人が始めやすく</span>
+                          <span>方得始终</span>
                       </p>
                   </div>
               </div>
 
               <div class="bg02">
                   <ul class="categoryList01">
-                      <li> <span>投資・投信積立を始める</span> </li>
-                      <li> <span>投資信託の選び方・セレクション</span> </li>
-                      <li> <span>iDeCo（イデコ）を知る</span> </li>
-                      <li> <span>NISA/つみたてNISAを知る</span> </li>
-                      <li> <span>ネット証券の比較</span> </li>
-                      <li> <span>ネット証券のサービス</span> </li>
-                      <li> <span>ネット証券の始め方・使い方</span> </li>
-                      <li> <span>ロボアド・スマホ証券</span> </li>
+                      <li> <span>首页</span> </li>
+                      <li> <span>做我的猫</span> </li>
+                      <li> <span>闲言碎语</span> </li>
+                      <li> <span>认真听歌</span> </li>
+                      <li> <span>好好吃饭</span> </li>
+                      <li> <span>掉些头发</span> </li>
+                      <li> <span>cms</span> </li>
+                      <li> <span>about me</span> </li>
                   </ul>
 
                   <div class="tagListMod01">
                       <div class="vessel">
                           <ul>
-                              <li>株式投資</li>
-                              <li>ロボアド</li>
-                              <li>口コミ</li>
-                              <li>楽天証券</li>
-                              <li>住信SBIネット銀行</li>
-                              <li>外貨預金</li>
-                              <li>iDeCo（イデコ）</li>
-                              <li>知る/始める</li>
-                              <li>株式投資</li>
-                              <li>ロボアド</li>
-                              <li>口コミ</li>
-                              <li>楽天証券</li>
-                              <li>住信SBIネット銀行</li>
-                              <li>外貨預金</li>
-                              <li>iDeCo（イデコ）</li>
-                              <li>知る/始める</li>
+                              <li>HTML</li>
+                              <li>CSS</li>
+                              <li>VUE</li>
+                              <li>JAVASCRIPT</li>
+                              <li>NODE</li>
+                              <li>EGG</li>
+                              <li>KOA</li>
+                              <li>MYSQL</li>
+                              <li>REDIS</li>
+                              <li>MACBOOK</li>
+                              <li>ELEMENT</li>
+                              <li>COOL</li>
+                              <li>LINUX</li>
+                              <li>NUXT</li>
+                              <li>GITHUB</li>
+                              <li>ECHART</li>
+                              <li>FLUTTER</li>
                           </ul>
                       </div>
                   </div>
@@ -112,6 +113,7 @@ export default {
     background: #3AD6B2;
 }
 .trigger01 {
+	display: none;
 	width: 55px;
 	height: 55px;
 	cursor: pointer;
@@ -169,11 +171,8 @@ export default {
 	.menuG {
 		left: -380px;
 	}
-    .trigger {
-        visibility: visible;
-    }
-	.menuG .close {
-		visibility: visible;
+	.trigger01 {
+		display: block;
 	}
 }
 .vessel {
@@ -261,7 +260,7 @@ export default {
 
 .bg02 {
     background: #3AD6B2;
-    padding: 47px 36px 100px 50px;
+    padding: 47px 42px 100px 42px;
 }
 .categoryList01 {
     padding-left: 0;
