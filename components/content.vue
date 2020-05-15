@@ -16,7 +16,7 @@
 
           <h2 class="headIndexMod01" @click="openDiolog">PICKUP</h2>
           <el-row class="row_class" :gutter="20">
-            <el-col @click="openDiolog" :xs="24" :sm="12"><div class="col_class">fdgdfge</div></el-col>
+            <el-col :xs="24" :sm="12"><div class="col_class" @click="openDiolog">fdgdfge</div></el-col>
             <el-col :xs="24" :sm="12"><div class="col_class">fff</div></el-col>
             <el-col :xs="24" :sm="12"><div class="col_class">fff</div></el-col>
             <el-col :xs="24" :sm="12"><div class="col_class">fff</div></el-col>
