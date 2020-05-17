@@ -40,23 +40,7 @@
                   <div class="tagListMod01">
                       <div class="vessel">
                           <ul>
-                              <li>HTML</li>
-                              <li>CSS</li>
-                              <li>VUE</li>
-                              <li>JAVASCRIPT</li>
-                              <li>NODE</li>
-                              <li>EGG</li>
-                              <li>KOA</li>
-                              <li>MYSQL</li>
-                              <li>REDIS</li>
-                              <li>MACBOOK</li>
-                              <li>ELEMENT</li>
-                              <li>COOL</li>
-                              <li>LINUX</li>
-                              <li>NUXT</li>
-                              <li>GITHUB</li>
-                              <li>ECHART</li>
-                              <li>FLUTTER</li>
+                              <li @click="goCode" v-for="(item, index) in list" :key="index"> {{ item.name }} </li>
                           </ul>
                       </div>
                   </div>
@@ -82,7 +66,25 @@ export default {
   name: "Menu",
   data() {
     return {
-		menuGive: false
+        menuGive: false,
+        list: [
+            { name: 'Html' },
+            { name: 'Css' },
+            { name: 'Vue' },
+            { name: 'JavaScript' },
+            { name: 'Node' },
+            { name: 'Egg' },
+            { name: 'Koa' },
+            { name: 'Mysql' },
+            { name: 'Redis' },
+            { name: 'Macbook' },
+            { name: 'Eelment' },
+            { name: 'Cool' },
+            { name: 'Nuxt' },
+            { name: 'Github' },
+            { name: 'Echarts' },
+            { name: 'Flutter' },
+        ]
     }
   },
   methods: {
@@ -94,7 +96,10 @@ export default {
 			  document.getElementsByClassName('menuG')[0].style.left = 0;
 		  	  this.menuGive = true;
 		  }
-	  },
+      },
+      goCode() {
+          this.$router.push({ name: 'code' })
+      }
   }
 }
 </script>
