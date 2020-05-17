@@ -23,18 +23,18 @@
             </div>
           </div>
 
-          <h2 class="headIndexMod01">PICKUP</h2>
+          <h2 class="headIndexMod01">のlife</h2>
           <el-row class="row_class" :gutter="20">
             <el-col :xs="24" :sm="12" v-for="con in 4" :key="con">
               <div class="col_class" @click="openDiolog">
-                <div class="col_class_title">iDeCo（イデコ）を知る</div>
-                <div class="col_class_content">iDeCo（イデコ）の手数料・商品比較　どこがおすすめ？</div>
-                <div class="col_class_date">UPDATE 2019.11.12</div>
+                <div class="col_class_title">关于本站</div>
+                <div class="col_class_content">写在前面的话，2020</div>
+                <div class="col_class_date">update 2020.02.12</div>
               </div>
             </el-col>
           </el-row>
 
-          <h2 class="headIndexMod01">住宅ローンを知る・選ぶ</h2>
+          <h2 class="headIndexMod01">@talk</h2>
           <el-row class="row_class" :gutter="20">
             <el-col :xs="24" :sm="12" v-for="con in 4" :key="con">
               <div class="col_class" @click="openDiolog">
@@ -62,7 +62,7 @@
         </div>
       </div>
 
-      <div class="contentsBlock02">
+      <!-- <div class="contentsBlock02">
         <div class="bodyIndexBlock01">
           <div class="row_fotter">
             <div class="row_fotter_item">HTML</div>
@@ -107,7 +107,7 @@
 			  <div>© 2019 HIKARINA INC.</div>
 		  </div>
         </div>
-      </div>
+      </div> -->
 
 
 	  <el-dialog
@@ -376,74 +376,4 @@ export default {
     -o-transform: scale(1);
     transform: scale(1);
   }
-  .row_fotter {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 74px;
-    padding: 0 30px;
-  }
-  .row_fotter .row_fotter_item {
-    padding: 0 20px;
-    border-radius: 17.5px;
-    -webkit-border-radius: 17.5px;
-    -moz-border-radius: 17.5px;
-    height: 35px;
-    background: #B4F1E2;
-    color: #222;
-    font-size: 13px;
-    font-weight: 600;
-    line-height: 35px;
-    white-space: nowrap;
-    position: relative;
-    overflow: hidden;
-    margin: 10px 0 0 8px;
-  }
-  .row_fotter .row_fotter_item:hover {
-    opacity: .7;
-    cursor: pointer;
-  }
-  .followusMod01 {
-    margin-top: 37px;
-}
-.followusMod01 dt {
-    color: #222;
-    font-size: 13px;
-    font-family: 'Rubik', sans-serif;
-    font-weight: 700;
-    text-align: center;
-    text-indent: 0.05em;
-    letter-spacing: 0.05em;
-}
-.followusMod01 dd {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    margin-top: 20px;
-}
-.followusMod01 dd span {
-    width: 45px;
-    height: 45px;
-    background: url(../assets/images//btn_sns_fb_02.svg) no-repeat;
-    background-size: 45px 45px;
-}
-.followusMod01 dd .tiwwer {
-    margin-left: 15px;
-    width: 45px;
-    height: 45px;
-    background: url(../assets/images//btn_sns_tw_02.svg) no-repeat;
-    background-size: 45px 45px;
-}
-.logo_class {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-top: 37px;
-}
-.link0_class {
-	margin-top: 37px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
 </style>

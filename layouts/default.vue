@@ -2,16 +2,19 @@
   <div>
     <Menu></Menu>
     <nuxt />
+    <Fotter></Fotter>
   </div>
 </template>
 
 
 <script>
 import Menu from '../components/menu.vue'
+import Fotter from '../components/fotter.vue'
 
 export default {
   components: {
-    Menu
+    Menu,
+    Fotter
   }
 }
 </script>
