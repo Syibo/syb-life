@@ -15,7 +15,7 @@
                   <span class="line03"></span>
                   <div class="vessel_logo">
                       <div class="logo01">
-                          <img src="../assets/images/logo_01_w.svg">
+                          <img src="../assets/images/syb_logo_menu.png"/>
                       </div>
                       <p class="tagline01">
                           <span>不忘初心</span>
@@ -243,8 +243,9 @@ export default {
     line-height: 0;
 }
 .logo01 img {
-    width: 121px;
-    height: 53px;
+    width: 191px;
+    height: 87px;
+    margin-left: -16px;
 }
 .tagline01 {
     margin: 11px 0 0 7px;

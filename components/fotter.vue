@@ -37,7 +37,7 @@
           </div>
 
 		  <div class="logo_class">
-			  <img src="../assets/images/logo_01.svg" />
+			  <img src="../assets/images/syb_logo.png" width="152" height="84" />
 		  </div>
 
 		  <div class="link0_class">
