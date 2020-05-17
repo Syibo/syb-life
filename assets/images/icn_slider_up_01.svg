@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.313 7.071">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #222;
+        stroke: #222;
+        stroke-width: 2px;
+      }
+
+      .cls-2 {
+        stroke: none;
+      }
+
+      .cls-3 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <g id="グループ化_399" data-name="グループ化 399" transform="translate(-848.344 -761.343)">
+    <g id="長方形_620" data-name="長方形 620" class="cls-1" transform="translate(852.586 762.757) rotate(-45)">
+      <rect class="cls-2" width="2" height="8"/>
+      <rect class="cls-3" x="1" y="1" height="6"/>
+    </g>
+    <g id="長方形_622" data-name="長方形 622" class="cls-1" transform="translate(854 761.343) rotate(45)">
+      <rect class="cls-2" width="2" height="8"/>
+      <rect class="cls-3" x="1" y="1" height="6"/>
+    </g>
+  </g>
+</svg>
