@@ -1,8 +1,20 @@
 <template>
   <div>
+    <Menu></Menu>
     <nuxt />
   </div>
 </template>
+
+
+<script>
+import Menu from '../components/menu.vue'
+
+export default {
+  components: {
+    Menu
+  }
+}
+</script>
 
 <style>
 html {

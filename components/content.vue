@@ -11,23 +11,38 @@
       <div class="contentsBlock02">
         <div class="bodyIndexBlock01">
           <div class="newsBlock01">
-            lll
+            <span class="news"> news </span>
+            <div class="news_content">
+              <div class="news_title">SBI証券</div>
+              <div class="news_mid">口座開設手続きがリニューアル 郵送物なしで口座開設可能に</div>
+              <div class="news_date">2020.04.01</div>
+            </div>
+            <div class="swiperNav01">
+              <div class="newsPrev01"></div>
+              <div class="newsNext01"></div>
+            </div>
           </div>
 
-          <h2 class="headIndexMod01" @click="openDiolog">PICKUP</h2>
+          <h2 class="headIndexMod01">PICKUP</h2>
           <el-row class="row_class" :gutter="20">
-            <el-col :xs="24" :sm="12"><div class="col_class" @click="openDiolog">fdgdfge</div></el-col>
-            <el-col :xs="24" :sm="12"><div class="col_class">fff</div></el-col>
-            <el-col :xs="24" :sm="12"><div class="col_class">fff</div></el-col>
-            <el-col :xs="24" :sm="12"><div class="col_class">fff</div></el-col>
+            <el-col :xs="24" :sm="12" v-for="con in 4" :key="con">
+              <div class="col_class" @click="openDiolog">
+                <div class="col_class_title">iDeCo（イデコ）を知る</div>
+                <div class="col_class_content">iDeCo（イデコ）の手数料・商品比較　どこがおすすめ？</div>
+                <div class="col_class_date">UPDATE 2019.11.12</div>
+              </div>
+            </el-col>
           </el-row>
 
           <h2 class="headIndexMod01">住宅ローンを知る・選ぶ</h2>
           <el-row class="row_class" :gutter="20">
-            <el-col :xs="24" :sm="12"><div class="col_class">fff</div></el-col>
-            <el-col :xs="24" :sm="12"><div class="col_class">fff</div></el-col>
-            <el-col :xs="24" :sm="12"><div class="col_class">fff</div></el-col>
-            <el-col :xs="24" :sm="12"><div class="col_class">fff</div></el-col>
+            <el-col :xs="24" :sm="12" v-for="con in 4" :key="con">
+              <div class="col_class" @click="openDiolog">
+                <div class="col_class_title">iDeCo（イデコ）を知る</div>
+                <div class="col_class_content">iDeCo（イデコ）の手数料・商品比較　どこがおすすめ？</div>
+                <div class="col_class_date">UPDATE 2019.11.12</div>
+              </div>
+            </el-col>
           </el-row>
         </div>
       </div>
@@ -36,10 +51,13 @@
         <div class="bodyIndexBlock01">
           <h2 class="headIndexMod01">住宅ローンを知る・選ぶ</h2>
           <el-row class="row_class" :gutter="20">
-            <el-col :xs="24" :sm="12"><div class="col_class row_green">fff</div></el-col>
-            <el-col :xs="24" :sm="12"><div class="col_class row_green">fff</div></el-col>
-            <el-col :xs="24" :sm="12"><div class="col_class row_green">fff</div></el-col>
-            <el-col :xs="24" :sm="12"><div class="col_class row_green">fff</div></el-col>
+            <el-col :xs="24" :sm="12" v-for="con in 4" :key="con">
+              <div class="col_class row_green" @click="openDiolog">
+                <div class="col_class_title">iDeCo（イデコ）を知る</div>
+                <div class="col_class_content">iDeCo（イデコ）の手数料・商品比較　どこがおすすめ？</div>
+                <div class="col_class_date">UPDATE 2019.11.12</div>
+              </div>
+            </el-col>
           </el-row>
         </div>
       </div>
@@ -96,15 +114,18 @@
 		title=""
 		:visible.sync="dialogVisible"
 		:fullscreen="true">
-		<div style="height: 1500px">ddd</div>
+      <Dialog></Dialog>
 	  </el-dialog>
 
-      
   </div>
 </template>
 <script>
+import Dialog from './dialog.vue'
 export default {
   name: "Content",
+  components: {
+    Dialog
+  },
   data() {
     return {
 		dialogVisible: false
@@ -152,12 +173,105 @@ export default {
     padding: 1px 0 75px 0;
     z-index: 2;
   }
-  .contentsBlock02 .bodyIndexBlock01 .newsBlock01{
+  .contentsBlock02 .bodyIndexBlock01 .newsBlock01 {
     margin-top: -31px;
     padding-bottom: 7px;
     height: 135px;
     overflow: hidden;
     background-color: white;
+    display: flex;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    background: #FFF;
+    box-shadow: 0px 8px #B8E8DC;
+    -webkit-box-shadow: 0px 8px #B8E8DC;
+    margin-bottom: 40px;
+  }
+  .contentsBlock02 .bodyIndexBlock01 .newsBlock01:hover {
+    cursor: pointer;
+  }
+  .contentsBlock02 .bodyIndexBlock01 .newsBlock01:hover .news_mid{
+    color: #25C49F;
+  }
+  .contentsBlock02 .bodyIndexBlock01 .newsBlock01 .news {
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 48px;
+    background: url(../assets/images/icn_headindex_01.svg) no-repeat 30px 50%;
+    background-size: 9px 13px;
+    width: 128px;
+    font-size: 15px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .contentsBlock02 .bodyIndexBlock01 .newsBlock01 .news_content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .contentsBlock02 .bodyIndexBlock01 .newsBlock01 .news_content .news_title {
+    color: #25C49F;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .contentsBlock02 .bodyIndexBlock01 .newsBlock01 .news_content .news_mid {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+  .contentsBlock02 .bodyIndexBlock01 .newsBlock01 .news_content .news_date {
+    margin-top: 6px;
+    color: #888;
+    font-size: 13px;
+    font-family: 'Rubik', sans-serif;
+    letter-spacing: 0.05em;
+  }
+  .contentsBlock02 .bodyIndexBlock01 .newsBlock01 .swiperNav01 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75px;
+    flex-direction: column;
+  }
+  .contentsBlock02 .bodyIndexBlock01 .newsBlock01 .swiperNav01::after {
+    content: " ";
+    position: absolute;
+    top: 35px;
+    right: 17px;
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: #E8E8E8;
+  }
+  .contentsBlock02 .bodyIndexBlock01 .newsBlock01 .swiperNav01 .newsPrev01 {
+    width: 25px;
+    height: 25px;
+    background-image: url(../assets/images/icn_slider_up_01.svg);
+    background-size: 20px 20px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+    overflow: hidden;
+    z-index: 99999999;
+    margin-bottom: 15px;
+  }
+  .contentsBlock02 .bodyIndexBlock01 .newsBlock01 .swiperNav01 .newsNext01 {
+    width: 25px;
+    height: 25px;
+    background-image: url(../assets/images/icn_slider_down_01.svg);
+    background-size: 20px 20px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+    overflow: hidden;
+    z-index: 99999999;
   }
   .contentsBlock02 .bodyIndexBlock01 .headIndexMod01 {
     margin-top: 73px;
@@ -172,7 +286,9 @@ export default {
   }
   .row_class .col_class {
     position: relative;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     height: 160px;
     padding: 41px 40px 54px 40px;
     border-radius: 20px;
@@ -182,6 +298,31 @@ export default {
     box-shadow: 0px 8px #B8E8DC;
     -webkit-box-shadow: 0px 8px #B8E8DC;
     margin-bottom: 40px;
+  }
+  .row_class .col_class .col_class_title {
+    padding: 0 0 0 13px;
+    background: url(../assets/images/icn_headindex_01.svg) no-repeat 0 0.35em;
+    background-size: 6px 8px;
+    color: #25C49F;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-top: 20px;
+  }
+  .row_class .col_class .col_class_content {
+    margin-top: 17px;
+    color: #222;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.47;
+    letter-spacing: 0.08em;
+  }
+  .row_class .col_class .col_class_date {
+    margin-top: 17px;
+    color: #888;
+    font-size: 13px;
+    font-family: 'Rubik', sans-serif;
+    letter-spacing: 0.05em;
   }
   .row_class .row_green {
     background: #E5F8F3 url(../assets/images/bg_indexlist_01.svg) no-repeat 100% 0;
