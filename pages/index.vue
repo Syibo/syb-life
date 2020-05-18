@@ -20,30 +20,24 @@ export default {
     }
   },
   async asyncData ({ params }) {
-    // const li = [
-    //   {
-    //     "link": 3333
-    //   }
-    // ]
-    // const { data } = await axios({
-    //   method: 'post',
-    //   url: 'http://47.107.48.44:7001/admin/web/article/testPost',
-    //   data: {
-    //     name: '5',
-    //   }
-    // })
-    // return { list: data.data }
+    const li = [
+      {
+        "link": 3333
+      }
+    ]
+    const { data } = await axios({
+      method: 'get',
+      url: 'http://47.107.48.44:7001/admin/web/article/artNum',
+    })
+    return { list: data.data }
   },
   async mounted() {
-    // const { data } = await axios({
-    //   method: 'post',
-    //   url: '/api/admin/web/article/testPost',
-    //   data: {
-    //     name: '5',
-    //   }
-    // })
-    // console.log(data)
-    // this.list = data.data;
+    const { data } = await axios({
+      method: 'get',
+      url: '/api/admin/web/article/artNum',
+    })
+    console.log(data)
+    this.list = data.data;
   }
 }
 </script>
