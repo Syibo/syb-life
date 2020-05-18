@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <Content></Content>
+    <div>{{ list }}</div>
   </div>
 </template>
 
@@ -19,15 +20,10 @@ export default {
       list: []
     }
   },
-  async asyncData ({ params }) {
-    const li = [
-      {
-        "link": 3333
-      }
-    ]
-    const { data } = await axios({
+  async asyncData ({$axios}) {
+    const { data } = await $axios({
       method: 'get',
-      url: 'http://47.107.48.44:7001/admin/web/article/artNum',
+      url: '/api/admin/web/article/artNum',
     })
     return { list: data.data }
   },
