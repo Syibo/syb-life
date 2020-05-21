@@ -40,7 +40,7 @@
                   <div class="tagListMod01">
                       <div class="vessel">
                           <ul>
-                              <li @click="goCode" v-for="(item, index) in list" :key="index"> {{ item.name }} </li>
+                              <li @click="goCode" v-for="(item, index) in list" :key="index"> {{ item.artName }} </li>
                           </ul>
                       </div>
                   </div>
@@ -64,27 +64,10 @@
 <script>
 export default {
   name: "Menu",
+  props: ['list'],
   data() {
     return {
         menuGive: false,
-        list: [
-            { name: 'Html' },
-            { name: 'Css' },
-            { name: 'Vue' },
-            { name: 'JavaScript' },
-            { name: 'Node' },
-            { name: 'Egg' },
-            { name: 'Koa' },
-            { name: 'Mysql' },
-            { name: 'Redis' },
-            { name: 'Macbook' },
-            { name: 'Eelment' },
-            { name: 'Cool' },
-            { name: 'Nuxt' },
-            { name: 'Github' },
-            { name: 'Echarts' },
-            { name: 'Flutter' },
-        ]
     }
   },
   methods: {

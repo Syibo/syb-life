@@ -1,19 +1,22 @@
 <template>
   <div class="container">
+    <Menu :list="list"></Menu>
     <Content></Content>
-    <div>{{ list }}</div>
+    <Fotter :list="list"></Fotter>
   </div>
 </template>
 
 <script>
-import Menu from '~/components/menu.vue'
 import Content from '~/components/content.vue'
+import Fotter from '../components/fotter.vue'
+import Menu from '../components/menu.vue'
 import axios from 'axios'
 
 export default {
   components: {
+    Content,
     Menu,
-    Content
+    Fotter
   },
   data() {
     return {
@@ -25,6 +28,7 @@ export default {
       method: 'get',
       url: '/api/admin/web/article/artNum',
     })
+    // console.log(data.data)
     return { list: data.data }
   },
   async mounted() {

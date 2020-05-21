@@ -3,27 +3,7 @@
 <div class="contentsBlock02">
         <div class="bodyIndexBlock01">
           <div class="row_fotter">
-            <div class="row_fotter_item">HTML</div>
-            <div class="row_fotter_item">CSS</div>
-            <div class="row_fotter_item">VUE</div>
-            <div class="row_fotter_item">JAVASCRIPT</div>
-            <div class="row_fotter_item">NODE</div>
-            <div class="row_fotter_item">EGG</div>
-            <div class="row_fotter_item">KOA</div>
-            <div class="row_fotter_item">MYSQL</div>
-            <div class="row_fotter_item">REDIS</div>
-            <div class="row_fotter_item">MACBOOK</div>
-            <div class="row_fotter_item">ELEMENT</div>
-            <div class="row_fotter_item">COOL</div>
-            <div class="row_fotter_item">LINUX</div>
-            <div class="row_fotter_item">EGG</div>
-            <div class="row_fotter_item">KOA</div>
-            <div class="row_fotter_item">MYSQL</div>
-            <div class="row_fotter_item">REDIS</div>
-            <div class="row_fotter_item">MACBOOK</div>
-            <div class="row_fotter_item">ELEMENT</div>
-            <div class="row_fotter_item">COOL</div>
-            <div class="row_fotter_item">LINUX</div>
+            <div class="row_fotter_item" v-for="(item) in list" :key="item.artName"> {{ item.artName }} </div>
           </div>
 
           <div class="followusMod01">
@@ -50,8 +30,18 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: "Fotter",
+  props: ['list']
+  // async mounted() {
+  //   const { data } = await axios({
+  //     method: 'get',
+  //     url: '/api/admin/web/article/artNum',
+  //   })
+  //   console.log(data)
+  //   this.list = data.data;
+  // }
 }
 </script>
 <style scoped>

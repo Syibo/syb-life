@@ -1,39 +1,52 @@
 <template>
-  <div class="contents">
-    <div class="contentsBlock">
-        <header class="headerBlock">
-            <h1>
-                Html
-            </h1>
-        </header>
-      </div>
-
-      <div class="contentsBlockcode">
-        <div class="bodyIndexBlock">'
-          <el-row class="row_class">
-            <el-col :xs="24" v-for="item in 10" :key="item">
-              <code-compenents></code-compenents>
-            </el-col>
-          </el-row>
+  <div>
+    <Menu :list="list"></Menu>
+    <div class="contents">
+      <div class="contentsBlock">
+          <header class="headerBlock">
+              <h1>
+                  Html
+              </h1>
+          </header>
         </div>
+
+        <div class="contentsBlockcode">
+          <div class="bodyIndexBlock">'
+            <el-row class="row_class">
+              <el-col :xs="24" v-for="item in 10" :key="item">
+                <code-compenents></code-compenents>
+              </el-col>
+            </el-row>
+          </div>
+      </div>
     </div>
+    <Fotter :list="list"></Fotter>
   </div>
 </template>
 
 <script>
 import CodeCompenents from '~/components/code.vue'
+import Fotter from '../components/fotter.vue'
+import Menu from '../components/menu.vue'
 export default {
   name: 'Code',
   components: {
-      CodeCompenents
+      CodeCompenents,
+      Menu,
+      Fotter
   },
   data() {
     return {
-
+      list: []
     }
   },
-  async asyncData ({ params }) {
-
+  async asyncData ({$axios}) {
+    const { data } = await $axios({
+      method: 'get',
+      url: '/api/admin/web/article/artNum',
+    })
+    // console.log(data.data)
+    return { list: data.data }
   },
   async mounted() {
 
