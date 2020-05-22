@@ -1,4 +1,4 @@
-# nuxt-sbb
+# syb-life
 
 > My wicked Nuxt.js project
 
