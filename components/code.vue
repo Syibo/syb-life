@@ -1,18 +1,24 @@
 <template>
-<div class="code">
-    <div class="code_title">「楽天カードで投信積立」1％ポイント還元でおトク</div>
-    <div class="code_date">update 2019.6.25</div>
+<div class="code" @click="opUrl(content.link)">
+    <div class="code_title">{{ content.title }}</div>
+    <div class="code_date">update {{ content.updateTime }}</div>
 </div>
 </template>
 
 <script>
 export default {
   name: "CodeCompenents",
+  props: ['content'],
   data() {
     return {
 
     }
   },
+  methods: {
+    opUrl(link) {
+      window.open(link, '_blank');
+    }
+  }
 }
 </script>
 <style scoped>
@@ -88,6 +94,5 @@ export default {
     color: #888;
     font-size: 13px;
     letter-spacing: 0.03em;
-    padding-left: 10px;
   }
 </style>

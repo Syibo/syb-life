@@ -26,7 +26,7 @@ export default {
   async asyncData ({$axios}) {
     const { data } = await $axios({
       method: 'get',
-      url: '/api/admin/web/article/artNum',
+      url: '/api/admin/web/artType/list',
     })
     // console.log(data.data)
     return { list: data.data }
@@ -34,9 +34,8 @@ export default {
   async mounted() {
     const { data } = await axios({
       method: 'get',
-      url: '/api/admin/web/article/artNum',
+      url: '/api/admin/web/artType/list',
     })
-    console.log(data)
     this.list = data.data;
   }
 }

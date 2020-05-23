@@ -14,7 +14,7 @@
                   <span class="line02"></span>
                   <span class="line03"></span>
                   <div class="vessel_logo">
-                      <div class="logo01">
+                      <div class="logo01" @click="goHome">
                           <img src="../assets/images/syb_logo_menu.png"/>
                       </div>
                       <p class="tagline01">
@@ -40,7 +40,7 @@
                   <div class="tagListMod01">
                       <div class="vessel">
                           <ul>
-                              <li @click="goCode" v-for="(item, index) in list" :key="index"> {{ item.artName }} </li>
+                              <li @click="goCode(item.artName)" v-for="(item, index) in list" :key="index"> {{ item.artName }} </li>
                           </ul>
                       </div>
                   </div>
@@ -80,8 +80,22 @@ export default {
 		  	  this.menuGive = true;
 		  }
       },
-      goCode() {
-          this.$router.push({ name: 'code' })
+      goCode(type) {
+          if (this.$route.name === 'code') {
+              this.$emit('type', type)
+          } else {
+              this.$router.push({ 
+                name: 'code',
+                query: {
+                    type
+                }
+              })
+          }
+      },
+      goHome() {
+          this.$router.push({
+              name: 'index'
+          })
       }
   }
 }
@@ -224,6 +238,9 @@ export default {
 .logo01{
     padding-left: 7px;
     line-height: 0;
+}
+.logo01:hover {
+    cursor: pointer;
 }
 .logo01 img {
     width: 191px;

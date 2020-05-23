@@ -3,7 +3,7 @@
 <div class="contentsBlock02">
         <div class="bodyIndexBlock01">
           <div class="row_fotter">
-            <div class="row_fotter_item" v-for="(item) in list" :key="item.artName"> {{ item.artName }} </div>
+            <div class="row_fotter_item" @click="goCode(item.artName)" v-for="(item) in list" :key="item.artName"> {{ item.artName }} </div>
           </div>
 
           <div class="followusMod01">
@@ -33,15 +33,24 @@
 import axios from 'axios'
 export default {
   name: "Fotter",
-  props: ['list']
-  // async mounted() {
-  //   const { data } = await axios({
-  //     method: 'get',
-  //     url: '/api/admin/web/article/artNum',
-  //   })
-  //   console.log(data)
-  //   this.list = data.data;
-  // }
+  props: ['list'],
+  async mounted() {
+    
+  },
+  methods: {
+    goCode(type) {
+      if (this.$route.name === 'code') {
+        this.$emit('type', type)
+      } else {
+        this.$router.push({ 
+          name: 'code',
+          query: {
+              type
+          }
+        })
+      }
+    },
+  }
 }
 </script>
 <style scoped>
