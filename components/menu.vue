@@ -27,10 +27,10 @@
 
               <div class="bg02">
                   <ul class="categoryList01">
-                      <li> <span>首页</span> </li>
-                      <li> <span>做我的猫</span> </li>
-                      <li> <span>闲言碎语</span> </li>
+                      <li @click="goHome"> <span>首页</span> </li>
+                      <li @click="goTalk"> <span>闲言碎语</span> </li>
                       <li> <span>认真听歌</span> </li>
+                      <li> <span>做我的猫</span> </li>
                       <li> <span>好好吃饭</span> </li>
                       <li> <span>掉些头发</span> </li>
                       <li> <span>cms</span> </li>
@@ -95,6 +95,11 @@ export default {
       goHome() {
           this.$router.push({
               name: 'index'
+          })
+      },
+      goTalk() {
+          this.$router.push({
+              name: 'talk'
           })
       }
   }
