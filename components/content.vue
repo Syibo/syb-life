@@ -80,12 +80,11 @@ export default {
   },
   data() {
     return {
-		dialogVisible: false
+		  dialogVisible: false
     }
   },
   methods: {
 	  openDiolog() {
-		  console.log(333333);
 		  this.dialogVisible = true;
 	  }
   }

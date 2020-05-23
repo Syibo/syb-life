@@ -13,7 +13,7 @@
       <div class="contentsBlockcode">
         <div class="bodyIndexBlock">'
           <el-row class="row_class" :gutter="20">
-            <el-col :xs="12" v-for="(item, index) in articleList" :key="index">
+            <el-col :xs="24" :sm="12" v-for="(item, index) in articleList" :key="index">
               <code-compenents :content="item"></code-compenents>
             </el-col>
           </el-row>
@@ -137,10 +137,6 @@ export default {
     max-width: 950px;
     padding: 1px 0 0 0;
     z-index: 2;
-  }
-  .row_class {
-      display: flex;
-      flex-wrap: wrap;
   }
   .pag {
     background-color: #e5f8f3;

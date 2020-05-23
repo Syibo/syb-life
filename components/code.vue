@@ -1,7 +1,7 @@
 <template>
 <div class="code" @click="opUrl(content.link)">
     <div class="code_title">{{ content.title }}</div>
-    <div class="code_date">update {{ content.updateTime }}</div>
+    <div class="code_date"> {{ content.updateTime }}</div>
 </div>
 </template>
 
@@ -88,6 +88,9 @@ export default {
     font-weight: 600;
     line-height: 1.8;
     letter-spacing: 0.08em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
   .code_date {
     margin-top: 4px;
