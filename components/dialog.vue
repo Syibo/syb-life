@@ -81,13 +81,8 @@ export default {
 	margin-bottom: 60px;
 }
 .dialog_div >>> p {
-  text-align: center;
+  text-indent: 2em;
   line-height: 2.4;
   font-size: 15px;
-}
-.dialog_content {
-	text-align: center;
-  line-height: 2.4;
-	font-size: 15px;
 }
 </style>
