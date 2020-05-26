@@ -11,7 +11,7 @@
       </div>
 
       <div class="contentsBlockcode">
-        <div class="bodyIndexBlock">'
+        <div class="bodyIndexBlock">
           <el-row class="row_class" :gutter="20">
             <el-col :xs="24" :sm="12" v-for="(item, index) in articleList" :key="index" @click.native="openDia(item)">
               <code-compenents :content="item" :isart="false"></code-compenents>
@@ -123,7 +123,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .contentsBlock {
     background: #FFF url(../assets/images/bg_home_01.png) repeat 100% 0;
   }
@@ -153,7 +153,7 @@ export default {
     margin: 0 auto;
     width: 100%;
     max-width: 950px;
-    padding: 1px 0 0 0;
+    padding: 50px 0 0 0;
     z-index: 2;
   }
   .pag {
