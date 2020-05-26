@@ -13,8 +13,8 @@
       <div class="contentsBlockcode">
         <div class="bodyIndexBlock">'
           <el-row class="row_class" :gutter="20">
-            <el-col :xs="24" :sm="12" v-for="(item, index) in articleList" :key="index">
-              <code-compenents :content="item"></code-compenents>
+            <el-col :xs="24" :sm="12" v-for="(item, index) in articleList" :key="index" @click.native="openDia(item)">
+              <code-compenents :content="item" :isart="false"></code-compenents>
             </el-col>
           </el-row>
 
@@ -33,20 +33,29 @@
       </div>
     </div>
     <Fotter :list="list" @type="type"></Fotter>
-  </div>
+
+    <el-dialog
+      title=""
+      :visible.sync="dialogVisible"
+      :fullscreen="true">
+        <Dialog :content="dialogData"></Dialog>
+      </el-dialog>
+    </div>
 </template>
 
 <script>
 import CodeCompenents from '~/components/code.vue'
 import Fotter from '../components/fotter.vue'
 import Menu from '../components/menu.vue'
+import Dialog from '../components/dialog.vue'
 import axios from 'axios'
 export default {
   name: 'Talk',
   components: {
       CodeCompenents,
       Menu,
-      Fotter
+      Fotter,
+      Dialog
   },
   data() {
     return {
@@ -55,33 +64,37 @@ export default {
       page: 1,
       size: 10,
       total: 1,
-      articleList: []
+      articleList: [],
+      dialogVisible: false,
+      dialogData: {}
     }
   },
-  async asyncData ({$axios}) {
-    const { data } = await $axios({
-      method: 'get',
-      url: '/api/admin/web/artType/list',
-    })
-    return { list: data.data }
+  async asyncData ({$axios, params, error }) {
+    const [data, list] = await Promise.all([
+      $axios.get('/api/admin/web/artType/list'),
+      $axios.get('/api/admin/web/diary/page'),
+    ])
+    return {
+      list: data.data.data,
+      articleList: list.data.data.list,
+    }
   },
   async mounted() {
-    this.artType = this.$route.query.type;
-    const { data } = await axios({
-      method: 'get',
-      params: {
-        keyWord: this.artType,
-        page: this.page,
-        size: this.size
-      },
-      url: '/api/admin/web/article/page',
-    })
-    this.articleList = data.data.list;
-    this.total = data.data.pagination.total;
+    // this.artType = this.$route.query.type;
+    // const { data } = await axios({
+    //   method: 'get',
+    //   params: {
+    //     keyWord: this.artType,
+    //     page: this.page,
+    //     size: this.size
+    //   },
+    //   url: '/api/admin/web/article/page',
+    // })
+    // this.articleList = data.data.list;
+    // this.total = data.data.pagination.total;
   },
   methods: {
     async type(type) {
-      console.log(type);
       this.artType = type;
       const { data } = await axios({
         method: 'get',
@@ -94,6 +107,11 @@ export default {
       })
       this.articleList = data.data.list;
       this.total = data.data.pagination.total;
+    },
+    openDia(item) {
+      console.log(item)
+      this.dialogData = item;
+      this.dialogVisible = true;
     },
     handleSizeChange() {
 

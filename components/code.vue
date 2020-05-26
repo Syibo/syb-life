@@ -8,7 +8,16 @@
 <script>
 export default {
   name: "CodeCompenents",
-  props: ['content'],
+  props: {
+      content: {
+          type: Object,
+          default: {},
+      },
+      isart: {
+          type: Boolean,
+          default: true,
+      },
+  },
   data() {
     return {
 
@@ -16,7 +25,9 @@ export default {
   },
   methods: {
     opUrl(link) {
-      window.open(link, '_blank');
+      if(this.isart) {
+        window.open(link, '_blank');
+      }
     }
   }
 }

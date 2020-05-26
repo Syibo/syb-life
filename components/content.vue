@@ -11,15 +11,15 @@
       <div class="contentsBlock02">
         <div class="bodyIndexBlock01">
           <div class="newsBlock01">
-            <span class="news"> news </span>
+            <span class="news"> one is all </span>
             <div class="news_content">
-              <div class="news_title">SBI証券</div>
-              <div class="news_mid">口座開設手続きがリニューアル 郵送物なしで口座開設可能に</div>
-              <div class="news_date">2020.04.01</div>
+              <div class="news_title"> all is one </div>
+              <div class="news_mid">{{ oneData.title }}</div>
+              <div class="news_date">{{ oneData.updateTime }}</div>
             </div>
             <div class="swiperNav01">
-              <div class="newsPrev01"></div>
-              <div class="newsNext01"></div>
+              <div class="newsPrev01" @click="goPrev"></div>
+              <div class="newsNext01" @click="goNext"></div>
             </div>
           </div>
 
@@ -73,6 +73,7 @@
 </template>
 <script>
 import Dialog from './dialog.vue'
+import axios from 'axios'
 export default {
   name: "Content",
   components: {
@@ -80,13 +81,44 @@ export default {
   },
   data() {
     return {
-		  dialogVisible: false
+      dialogVisible: false,
+      oneData: {
+        title: '你要力图使哀怨对你毫无作用。自己能获取的，就不要哀求他人。',
+        updateTime: '2020-02-20',
+      },
+      oneAll: [],
+      inx: 0,
     }
+  },
+  mounted() {
+    this.getOneData()
   },
   methods: {
 	  openDiolog() {
 		  this.dialogVisible = true;
-	  }
+    },
+    async getOneData() {
+      const { data } = await axios({
+        method: 'get',
+        url: '/api/admin/web/news/list',
+      })
+      this.oneAll = data.data;
+      console.log(this.oneAll)
+    },
+    goPrev() {
+      if (this.inx < 0) {
+        this.inx = this.oneAll.length - 1
+      }
+      this.oneData = this.oneAll[this.inx];
+      this.inx--;
+    },
+    goNext() {
+      if (this.inx >= this.oneAll.length) {
+        this.inx = 0
+      }
+      this.oneData = this.oneAll[this.inx];
+      this.inx++;
+    },
   }
 }
 </script>
@@ -152,7 +184,7 @@ export default {
     padding: 0 0 0 48px;
     background: url(../assets/images/icn_headindex_01.svg) no-repeat 30px 50%;
     background-size: 9px 13px;
-    width: 128px;
+    width: 188px;
     font-size: 15px;
     font-family: 'Rubik', sans-serif;
     font-weight: 700;
@@ -212,6 +244,10 @@ export default {
     overflow: hidden;
     z-index: 99999999;
     margin-bottom: 15px;
+  }
+  .contentsBlock02 .bodyIndexBlock01 .newsBlock01 .swiperNav01 .newsPrev01:hover,
+  .contentsBlock02 .bodyIndexBlock01 .newsBlock01 .swiperNav01 .newsNext01:hover {
+    opacity: 0.6;
   }
   .contentsBlock02 .bodyIndexBlock01 .newsBlock01 .swiperNav01 .newsNext01 {
     width: 25px;
