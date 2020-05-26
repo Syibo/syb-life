@@ -5,7 +5,7 @@
       <div class="contentsBlock">
         <header class="headerBlock">
             <h1>
-                {{ artType }}
+                {{ $store.state.article.type || 'code' }}
             </h1>
         </header>
       </div>
@@ -58,30 +58,41 @@ export default {
       articleList: []
     }
   },
-  async asyncData ({$axios}) {
-    const { data } = await $axios({
-      method: 'get',
-      url: '/api/admin/web/artType/list',
-    })
-    return { list: data.data }
+  async asyncData (context) {
+    const [data, list] = await Promise.all([
+      context.$axios.get('/api/admin/web/artType/list'),
+      context.$axios({
+        method: 'get',
+        params: {
+          keyWord: context.store.state.article.type,
+          page: 1,
+          size: 10
+        },
+        url: '/api/admin/web/article/page',
+      })
+    ])
+    return {
+      list: data.data.data,
+      articleList: list.data.data.list,
+      total: list.data.data.pagination.total
+    }
   },
   async mounted() {
     this.artType = this.$route.query.type;
-    const { data } = await axios({
-      method: 'get',
-      params: {
-        keyWord: this.artType,
-        page: this.page,
-        size: this.size
-      },
-      url: '/api/admin/web/article/page',
-    })
-    this.articleList = data.data.list;
-    this.total = data.data.pagination.total;
+    // const { data } = await axios({
+    //   method: 'get',
+    //   params: {
+    //     keyWord: this.artType,
+    //     page: this.page,
+    //     size: this.size
+    //   },
+    //   url: '/api/admin/web/article/page',
+    // })
+    // this.articleList = data.data.list;
+    // this.total = data.data.pagination.total;
   },
   methods: {
     async type(type) {
-      console.log(type);
       this.artType = type;
       const { data } = await axios({
         method: 'get',

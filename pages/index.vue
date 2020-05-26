@@ -23,12 +23,11 @@ export default {
       list: []
     }
   },
-  async asyncData ({$axios}) {
-    const { data } = await $axios({
+  async asyncData (context) {
+    const { data } = await context.$axios({
       method: 'get',
       url: '/api/admin/web/artType/list',
     })
-    // console.log(data.data)
     return { list: data.data }
   },
   async mounted() {

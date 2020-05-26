@@ -49,6 +49,7 @@ export default {
   proxy: {
     '/api': {
       target: 'http://47.107.48.44:7001',
+      // target: 'http://127.0.0.1:7001',
       pathRewrite: {
         '^/api': '/',
       }

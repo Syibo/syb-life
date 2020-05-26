@@ -30,9 +30,9 @@
                       <li @click="goHome"> <span>首页</span> </li>
                       <li @click="goTalk"> <span>闲言碎语</span> </li>
                       <li> <span>认真听歌</span> </li>
-                      <li> <span>做我的猫</span> </li>
+                      <li @click="goCat"> <span>做我的猫</span> </li>
                       <li> <span>好好吃饭</span> </li>
-                      <li> <span>掉些头发</span> </li>
+                      <li @click="goCode('')"> <span>掉些头发</span> </li>
                       <li> <span>cms</span> </li>
                       <li> <span>about me</span> </li>
                   </ul>
@@ -62,6 +62,7 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
   name: "Menu",
   props: ['list'],
@@ -71,6 +72,9 @@ export default {
     }
   },
   methods: {
+      ...mapMutations({
+        'SET_TYPE': 'article/SET_TYPE'
+      }),
 	  openMenu() {
 		  if (this.menuGive) {
 			  document.getElementsByClassName('menuG')[0].style.left = '-380px';
@@ -81,6 +85,7 @@ export default {
 		  }
       },
       goCode(type) {
+          this.SET_TYPE(type)
           if (this.$route.name === 'code') {
               this.$emit('type', type)
           } else {
@@ -100,6 +105,11 @@ export default {
       goTalk() {
           this.$router.push({
               name: 'talk'
+          })
+      },
+      goCat() {
+          this.$router.push({
+              name: 'cat'
           })
       }
   }
