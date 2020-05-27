@@ -109,7 +109,6 @@ export default {
       this.total = data.data.pagination.total;
     },
     openDia(item) {
-      console.log(item)
       this.dialogData = item;
       this.dialogVisible = true;
     },

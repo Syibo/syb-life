@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <Menu :list="list"></Menu>
-    <Content></Content>
+    <Content :content="content"></Content>
     <Fotter :list="list"></Fotter>
   </div>
 </template>
@@ -20,15 +20,24 @@ export default {
   },
   data() {
     return {
-      list: []
+      list: [],
+      content: {}
     }
   },
   async asyncData (context) {
-    const { data } = await context.$axios({
-      method: 'get',
-      url: '/api/admin/web/artType/list',
-    })
-    return { list: data.data }
+    // const { data } = await context.$axios({
+    //   method: 'get',
+    //   url: '/api/admin/web/artType/list',
+    // })
+    // return { list: data.data }
+    const [data, list] = await Promise.all([
+      context.$axios.get('/api/admin/web/artType/list'),
+      context.$axios.get('/api/admin/web/article/home'),
+    ])
+    return {
+      list: data.data.data,
+      content: list.data.data,
+    }
   },
   async mounted() {
     const { data } = await axios({

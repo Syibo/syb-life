@@ -7,9 +7,9 @@
 	  {{ content.title }}
   </div>
   <div class="dialog_place">
-	  by{{ content.place }}
+	  {{ content.place }}
   </div>
-  <div class="dialog_itemImg">
+  <div class="dialog_itemImg" v-if="showp">
 	  <img :src="content.picture" width="1000" height="600" />
   </div>
   <div class="dialog_div" v-html="content.content"></div>
@@ -35,7 +35,11 @@ export default {
       content: {
           type: Object,
           default: {},
-      },
+	  },
+	  showp: {
+		  type: Boolean,
+		  default: true
+	  }
   },
   data() {
     return {
@@ -84,8 +88,5 @@ export default {
   text-indent: 2em;
   line-height: 2.4;
   font-size: 15px;
-}
-.dialog_div >>> .ql-align-center {
-  text-align: center;
 }
 </style>

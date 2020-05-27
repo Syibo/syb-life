@@ -23,24 +23,32 @@
             </div>
           </div>
 
-          <h2 class="headIndexMod01">のlife</h2>
+          <h2 class="headIndexMod01">のyear</h2>
           <el-row class="row_class" :gutter="20">
-            <el-col :xs="24" :sm="12" v-for="con in 4" :key="con">
+            <el-col :xs="24" :sm="12">
               <div class="col_class" @click="openDiolog">
                 <div class="col_class_title">关于本站</div>
                 <div class="col_class_content">写在前面的话，2020</div>
                 <div class="col_class_date">update 2020.02.12</div>
               </div>
             </el-col>
+
+			<el-col :xs="24" :sm="12" v-for="(con, index) in content.years" :key="index">
+              <div class="col_class" @click="openDia(con, false)">
+                <div class="col_class_title">{{ con.year }}</div>
+                <div class="col_class_content">{{ con.title }}</div>
+                <div class="col_class_date">{{ con.createTime }}</div>
+              </div>
+            </el-col>
           </el-row>
 
-          <h2 class="headIndexMod01">@talk</h2>
+          <h2 class="headIndexMod01">のdiary</h2>
           <el-row class="row_class" :gutter="20">
-            <el-col :xs="24" :sm="12" v-for="con in 4" :key="con">
-              <div class="col_class" @click="openDiolog">
-                <div class="col_class_title">iDeCo（イデコ）を知る</div>
-                <div class="col_class_content">iDeCo（イデコ）の手数料・商品比較　どこがおすすめ？</div>
-                <div class="col_class_date">UPDATE 2019.11.12</div>
+            <el-col :xs="24" :sm="12" v-for="(con, index) in content.diary" :key="index">
+              <div class="col_class" @click="openDia(con, true)">
+                <div class="col_class_title">{{ con.place }}</div>
+                <div class="col_class_content">{{ con.title }}</div>
+                <div class="col_class_date">{{ con.createTime }}</div>
               </div>
             </el-col>
           </el-row>
@@ -49,13 +57,13 @@
 
       <div class="contentsBlock02" style="background: white">
         <div class="bodyIndexBlock01">
-          <h2 class="headIndexMod01">住宅ローンを知る・選ぶ</h2>
+          <h2 class="headIndexMod01">のcode</h2>
           <el-row class="row_class" :gutter="20">
-            <el-col :xs="24" :sm="12" v-for="con in 4" :key="con">
-              <div class="col_class row_green" @click="openDiolog">
-                <div class="col_class_title">iDeCo（イデコ）を知る</div>
-                <div class="col_class_content">iDeCo（イデコ）の手数料・商品比較　どこがおすすめ？</div>
-                <div class="col_class_date">UPDATE 2019.11.12</div>
+            <el-col :xs="24" :sm="12" v-for="(con, index) in content.article" :key="index">
+              <div class="col_class row_green" @click="openWindow(con.link)">
+                <div class="col_class_title">{{ con.artType }}</div>
+                <div class="col_class_content">{{ con.title }}</div>
+                <div class="col_class_date">{{ con.createTime }}</div>
               </div>
             </el-col>
           </el-row>
@@ -66,7 +74,7 @@
 		title=""
 		:visible.sync="dialogVisible"
 		:fullscreen="true">
-      <Dialog></Dialog>
+      		<Dialog :content="dialogData" :showp="isShow"></Dialog>
 	  </el-dialog>
 
   </div>
@@ -79,6 +87,12 @@ export default {
   components: {
     Dialog
   },
+  props: {
+    content: {
+        type: Object,
+		default: {},
+    },
+  },
   data() {
     return {
       dialogVisible: false,
@@ -87,16 +101,26 @@ export default {
         updateTime: '2020-02-20',
       },
       oneAll: [],
-      inx: 0,
+	  inx: 0,
+	  dialogData: {},
+	  isShow: true,
     }
   },
   mounted() {
     this.getOneData()
   },
   methods: {
-	  openDiolog() {
-		  this.dialogVisible = true;
-    },
+	openDiolog() {
+		this.dialogVisible = true;
+	},
+	openDia(item, isShow) {
+	  this.isShow = isShow;
+      this.dialogData = item;
+      this.dialogVisible = true;
+	},
+	openWindow(link) {
+	  window.open(link, '_blank');
+	},
     async getOneData() {
       const { data } = await axios({
         method: 'get',
