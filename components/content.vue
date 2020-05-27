@@ -28,8 +28,8 @@
             <el-col :xs="24" :sm="12">
               <div class="col_class" @click="openDiolog">
                 <div class="col_class_title">关于本站</div>
-                <div class="col_class_content">写在前面的话，2020</div>
-                <div class="col_class_date">update 2020.02.12</div>
+                <div class="col_class_content">写在前面的话</div>
+                <div class="col_class_date">2020.02.12</div>
               </div>
             </el-col>
 
