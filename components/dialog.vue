@@ -85,4 +85,7 @@ export default {
   line-height: 2.4;
   font-size: 15px;
 }
+.dialog_div >>> .ql-align-center {
+  text-align: center;
+}
 </style>

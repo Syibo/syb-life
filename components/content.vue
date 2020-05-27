@@ -103,7 +103,6 @@ export default {
         url: '/api/admin/web/news/list',
       })
       this.oneAll = data.data;
-      console.log(this.oneAll)
     },
     goPrev() {
       if (this.inx < 0) {
