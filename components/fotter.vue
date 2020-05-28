@@ -31,6 +31,7 @@
 
 <script>
 import axios from 'axios'
+import { mapMutations } from "vuex";
 export default {
   name: "Fotter",
   props: ['list'],
@@ -38,7 +39,11 @@ export default {
     
   },
   methods: {
+    ...mapMutations({
+      'SET_TYPE': 'article/SET_TYPE'
+    }),
     goCode(type) {
+      this.SET_TYPE(type)
       if (this.$route.name === 'code') {
         this.$emit('type', type)
       } else {

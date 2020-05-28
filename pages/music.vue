@@ -1,53 +1,40 @@
 <template>
   <div>
-    <Menu :list="list" @type="type"></Menu>
+    <Menu :list="list"></Menu>
     <div class="contents">
       <div class="contentsBlock">
         <header class="headerBlock">
             <h1>
-                cat
+                music
             </h1>
         </header>
       </div>
 
       <div class="contentsBlockcode">
         <div class="bodyIndexBlock">
-            <el-timeline>
-                <el-timeline-item timestamp="2018/4/12" placement="top">
-                <el-card>
-                    <h4>更新 Github 模板</h4>
-                    <p>王小虎 提交于 2018/4/12 20:46</p>
-                </el-card>
-                </el-timeline-item>
-                <el-timeline-item timestamp="2018/4/3" placement="top">
-                <el-card>
-                    <h4>更新 Github 模板</h4>
-                    <p>王小虎 提交于 2018/4/3 20:46</p>
-                </el-card>
-                </el-timeline-item>
-                <el-timeline-item timestamp="2018/4/2" placement="top">
-                <el-card>
-                    <h4>更新 Github 模板</h4>
-                    <p>王小虎 提交于 2018/4/2 20:46</p>
-                </el-card>
-                </el-timeline-item>
-            </el-timeline>
+          <el-row class="row_class" :gutter="20">
+            <el-col :xs="24" :sm="8" v-for="(item, index) in 5" :key="index">
+              <food-compenents></food-compenents>
+            </el-col>
+          </el-row>
         </div>
       </div>
     </div>
-    <Fotter :list="list" @type="type"></Fotter>
+    <Fotter :list="list"></Fotter>
     </div>
 </template>
 
 <script>
 import Fotter from '../components/fotter.vue'
 import Menu from '../components/menu.vue'
+import FoodCompenents from '~/components/food.vue'
 import axios from 'axios'
 export default {
-  name: 'Cat',
+  name: 'Music',
   components: {
       Menu,
-      Fotter
+      Fotter,
+      FoodCompenents
   },
   data() {
     return {

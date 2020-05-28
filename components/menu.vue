@@ -29,9 +29,9 @@
                   <ul class="categoryList01">
                       <li @click="goHome"> <span>首页</span> </li>
                       <li @click="goTalk"> <span>闲言碎语</span> </li>
-                      <li> <span>认真听歌</span> </li>
+                      <li @click="goMusic"> <span>认真听歌</span> </li>
                       <li @click="goCat"> <span>做我的猫</span> </li>
-                      <li> <span>好好吃饭</span> </li>
+                      <li @click="goFood"> <span>好好吃饭</span> </li>
                       <li @click="goCode('')"> <span>掉些头发</span> </li>
                       <li> <span>cms</span> </li>
                       <li> <span>about me</span> </li>
@@ -110,6 +110,16 @@ export default {
       goCat() {
           this.$router.push({
               name: 'cat'
+          })
+      },
+      goMusic() {
+          this.$router.push({
+              name: 'music'
+          })
+      },
+      goFood() {
+          this.$router.push({
+              name: 'food'
           })
       }
   }

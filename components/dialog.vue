@@ -10,7 +10,7 @@
 	  {{ content.place }}
   </div>
   <div class="dialog_itemImg" v-if="showp">
-	  <img :src="content.picture" width="1000" height="600" />
+	  <img :src="content.picture" />
   </div>
   <div class="dialog_div" v-html="content.content"></div>
   <!-- <p class="dialog_content">
@@ -59,6 +59,17 @@ export default {
     flex-direction: column;
 	  padding-top: 70px;
 }
+@media screen and (max-width: 767px) {
+	.dialog {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding-top: 70px;
+  }
+}
 .dialog .dialog_date {
 	  font-size: 15px;
     color: #999;
@@ -83,6 +94,10 @@ export default {
 .dialog_itemImg {
 	margin-top: 56px;
 	margin-bottom: 60px;
+}
+.dialog_itemImg img {
+  max-width: 1000px;
+  width: 100%;
 }
 .dialog_div >>> p {
   text-indent: 2em;
