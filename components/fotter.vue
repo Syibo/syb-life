@@ -24,7 +24,7 @@
               </dl>
           </div>
 
-		  <div class="logo_class">
+		  <div class="logo_class" @click="goHome">
 			  <img src="../assets/images/syb_logo.png" width="152" height="84" />
 		  </div>
 
@@ -63,6 +63,11 @@ export default {
         })
       }
     },
+    goHome() {
+      this.$router.push({
+        name: 'index'
+      })
+    }
   }
 }
 </script>
@@ -129,6 +134,9 @@ export default {
 	justify-content: center;
 	align-items: center;
 	margin-top: 37px;
+}
+.logo_class:hover {
+  cursor: pointer;
 }
 .link0_class {
 	margin-top: 37px;
