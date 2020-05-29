@@ -9,7 +9,7 @@
   <div class="dialog_place">
 	  {{ content.place }}
   </div>
-  <div class="dialog_itemImg" v-if="showp">
+  <div class="dialog_itemImg" v-if="showp && content.picture">
 	  <img :src="content.picture" />
   </div>
   <div class="dialog_div" v-html="content.content"></div>
@@ -99,9 +99,17 @@ export default {
   max-width: 1000px;
   width: 100%;
 }
+.dialog_div {
+  width: 100%;
+}
 .dialog_div >>> p {
   text-indent: 2em;
   line-height: 2.4;
   font-size: 15px;
+}
+.dialog_div >>> pre {
+  background-color: #282a36;
+  color: #f8f8f2;
+  padding: 8px 16px 6px 8px;
 }
 </style>
