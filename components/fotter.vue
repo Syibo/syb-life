@@ -10,8 +10,16 @@
               <dl>
                   <dt>FOLLOW US</dt>
                   <dd>
-                      <span></span>
-                      <span class="tiwwer"></span>
+                      <!-- <span></span>
+                      <span class="tiwwer"></span> -->
+                      <el-popover
+                        placement="top"
+                        trigger="hover">
+                        <div>
+                          <img src="http://shenyibo.oss-cn-beijing.aliyuncs.com/a4b85644d30139aae26160a39059691.jpg" width="200" height="265">
+                        </div>
+                        <el-button style="background: #29C4A0; color: white" slot="reference" icon="el-icon-mobile" circle></el-button>
+                      </el-popover>
                   </dd>
               </dl>
           </div>
@@ -21,8 +29,8 @@
 		  </div>
 
 		  <div class="link0_class">
-			  <div>Fin/dについて 免責事項</div>
-			  <div>© 2019 HIKARINA INC.</div>
+			  <div>syb/life</div>
+			  <div>©2020</div>
 		  </div>
         </div>
       </div>
@@ -69,7 +77,7 @@ export default {
     width: 100%;
     max-width: 950px;
     padding: 1px 0 75px 0;
-    z-index: 2;
+    z-index: 1;
   }
     .row_fotter {
     display: flex;
@@ -115,19 +123,6 @@ export default {
     justify-content: center;
     align-content: center;
     margin-top: 20px;
-}
-.followusMod01 dd span {
-    width: 45px;
-    height: 45px;
-    background: url(../assets/images//btn_sns_fb_02.svg) no-repeat;
-    background-size: 45px 45px;
-}
-.followusMod01 dd .tiwwer {
-    margin-left: 15px;
-    width: 45px;
-    height: 45px;
-    background: url(../assets/images//btn_sns_tw_02.svg) no-repeat;
-    background-size: 45px 45px;
 }
 .logo_class {
 	display: flex;

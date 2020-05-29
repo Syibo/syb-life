@@ -154,7 +154,6 @@ export default {
     margin: 0 auto;
     width: 100%;
     max-width: 980px;
-    z-index: 2;
   }
   .headerBlock03 .image01{
     padding-top: 220px;
@@ -177,7 +176,6 @@ export default {
     width: 100%;
     max-width: 950px;
     padding: 1px 0 75px 0;
-    z-index: 2;
   }
   .contentsBlock02 .bodyIndexBlock01 .newsBlock01 {
     margin-top: -31px;
@@ -201,7 +199,6 @@ export default {
     color: #25C49F;
   }
   .contentsBlock02 .bodyIndexBlock01 .newsBlock01 .news {
-    display: -webkit-flex;
     display: flex;
     align-items: center;
     padding: 0 0 0 48px;
@@ -209,7 +206,6 @@ export default {
     background-size: 9px 13px;
     width: 188px;
     font-size: 15px;
-    font-family: 'Rubik', sans-serif;
     font-weight: 700;
     letter-spacing: 0.05em;
   }
@@ -218,6 +214,22 @@ export default {
     flex: 1;
     flex-direction: column;
     justify-content: center;
+  }
+   @media screen and (max-width: 767px) {
+    .contentsBlock02 .bodyIndexBlock01 .newsBlock01 .news {
+      display: none;
+      align-items: center;
+      padding: 0 0 0 48px;
+      background: url(../assets/images/icn_headindex_01.svg) no-repeat 30px 50%;
+      background-size: 9px 13px;
+      width: 188px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .news_content {
+      padding-left: 15px;
+    }
   }
   .contentsBlock02 .bodyIndexBlock01 .newsBlock01 .news_content .news_title {
     color: #25C49F;
@@ -265,7 +277,6 @@ export default {
     background-repeat: no-repeat;
     text-indent: -9999px;
     overflow: hidden;
-    z-index: 99999999;
     margin-bottom: 15px;
   }
   .contentsBlock02 .bodyIndexBlock01 .newsBlock01 .swiperNav01 .newsPrev01:hover,
@@ -281,7 +292,6 @@ export default {
     background-repeat: no-repeat;
     text-indent: -9999px;
     overflow: hidden;
-    z-index: 99999999;
   }
   .contentsBlock02 .bodyIndexBlock01 .headIndexMod01 {
     margin-top: 73px;
@@ -355,7 +365,6 @@ export default {
     width: 40px;
     height: 40px;
     background: #3AD6B2;
-    z-index: 1;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
     -webkit-transform: scale(0);
@@ -374,12 +383,10 @@ export default {
     background-size: 36px 36px;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
-    z-index: 5;
   }
   .row_class .col_class:hover::after {
     background: url(../assets/images/icn_indexlist_01_on.svg) no-repeat;
     background-size: 36px 36px;
-      z-index: 5;
   }
   .row_class .col_class:hover::before{
     -webkit-transform: scale(1);

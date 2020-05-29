@@ -68,7 +68,6 @@ export default {
     padding: 142px 0 138px 0;
     width: 100%;
     max-width: 1200px;
-    z-index: 2;
   }
   .headerBlock h1 {
     color: #222;
@@ -89,7 +88,6 @@ export default {
     width: 100%;
     max-width: 950px;
     padding: 50px 0 0 0;
-    z-index: 2;
   }
   .pag {
     background-color: #e5f8f3;

@@ -21,7 +21,6 @@
           <el-pagination
             background
             class="pag"
-            @size-change="handleSizeChange"
             @current-change="handleCurrentChange"
             :current-page.sync="page"
             :page-sizes="[10, 20, 30, 40]"
@@ -29,6 +28,11 @@
             layout="total, prev, pager, next"
             :total="total">
           </el-pagination>
+           <!-- <el-pagination
+            background
+            layout="prev, pager, next"
+            :total="50">
+          </el-pagination> -->
         </div>
       </div>
     </div>
@@ -79,21 +83,11 @@ export default {
   },
   async mounted() {
     this.artType = this.$route.query.type;
-    // const { data } = await axios({
-    //   method: 'get',
-    //   params: {
-    //     keyWord: this.artType,
-    //     page: this.page,
-    //     size: this.size
-    //   },
-    //   url: '/api/admin/web/article/page',
-    // })
-    // this.articleList = data.data.list;
-    // this.total = data.data.pagination.total;
   },
   methods: {
     async type(type) {
       this.artType = type;
+      this.page = 1;
       const { data } = await axios({
         method: 'get',
         params: {
@@ -106,11 +100,18 @@ export default {
       this.articleList = data.data.list;
       this.total = data.data.pagination.total;
     },
-    handleSizeChange() {
-
-    },
-    handleCurrentChange() {
-
+    async handleCurrentChange(val) {
+      const { data } = await axios({
+        method: 'get',
+        params: {
+          keyWord: this.artType,
+          page: val,
+          size: this.size
+        },
+        url: '/api/admin/web/article/page',
+      })
+      this.articleList = data.data.list;
+      this.total = data.data.pagination.total;
     }
   }
 }
@@ -126,7 +127,6 @@ export default {
     padding: 142px 0 138px 0;
     width: 100%;
     max-width: 1200px;
-    z-index: 2;
   }
   .headerBlock h1 {
     color: #222;
@@ -147,22 +147,9 @@ export default {
     width: 100%;
     max-width: 950px;
     padding: 50px 0 0 0;
-    z-index: 2;
   }
   .pag {
-    background-color: #e5f8f3;
-    float: right;
-  }
-  .pag .el-pager li {
-    background-color: #e5f8f3!important;
-  }
-  .pag .el-pager li:not(.disabled).active {
-    color: black!important;
-  }
-  .pag .btn-next {
-    background-color: #e5f8f3!important;
-  }
-  .pag .btn-prev {
-    background-color: #e5f8f3!important;
+    display: flex;
+    justify-content: flex-end;
   }
 </style>

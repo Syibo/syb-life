@@ -49,8 +49,14 @@
                       <dl>
                           <dt>FOLLOW US</dt>
                           <dd>
-                              <span></span>
-                              <span class="tiwwer"></span>
+                              <el-popover
+                                    placement="top"
+                                    trigger="hover">
+                                    <div>
+                                    <img src="http://shenyibo.oss-cn-beijing.aliyuncs.com/a4b85644d30139aae26160a39059691.jpg" width="200" height="265">
+                                    </div>
+                                    <el-button style="background: #29C4A0;color: white;border: none;" slot="reference" icon="el-icon-mobile" circle></el-button>
+                                </el-popover>
                           </dd>
                       </dl>
                   </div>
@@ -135,7 +141,7 @@ export default {
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
     background: #3AD6B2;
-    z-index: 10;
+    z-index: 1;
 }
 .trigger01 {
 	display: none;
@@ -380,7 +386,7 @@ export default {
     align-content: center;
     margin-top: 20px;
 }
-.followusMod01 dd span {
+/* .followusMod01 dd span {
     width: 45px;
     height: 45px;
     background: url(../assets/images//btn_sns_fb_02.svg) no-repeat;
@@ -392,5 +398,5 @@ export default {
     height: 45px;
     background: url(../assets/images//btn_sns_tw_02.svg) no-repeat;
     background-size: 45px 45px;
-}
+} */
 </style>

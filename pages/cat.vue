@@ -15,8 +15,14 @@
             <el-timeline>
                 <el-timeline-item timestamp="2018/4/12" placement="top">
                 <el-card>
-                    <h4>更新 Github 模板</h4>
-                    <p>王小虎 提交于 2018/4/12 20:46</p>
+                    <h4 style="margin-bottom: 10px">2020年5月16第一次接回家 取名’石榴‘</h4>
+                    <div class="demo-image__preview">
+                      <el-image 
+                        style="width: 30%;"
+                        src="http://shenyibo.oss-cn-beijing.aliyuncs.com/9b98b5ab38a6eb5d3e4a325c11e42d1.jpg" 
+                        :preview-src-list="srcList">
+                      </el-image>
+                    </div>
                 </el-card>
                 </el-timeline-item>
                 <el-timeline-item timestamp="2018/4/3" placement="top">
@@ -52,6 +58,9 @@ export default {
   data() {
     return {
       list: [],
+      srcList: [
+        'http://shenyibo.oss-cn-beijing.aliyuncs.com/9b98b5ab38a6eb5d3e4a325c11e42d1.jpg'
+      ]
     }
   },
   async asyncData ({$axios, params, error }) {
@@ -66,7 +75,21 @@ export default {
 
   },
   methods: {
-
+    async type(type) {
+      this.artType = type;
+      this.page = 1;
+      const { data } = await axios({
+        method: 'get',
+        params: {
+          keyWord: this.artType,
+          page: this.page,
+          size: this.size
+        },
+        url: '/api/admin/web/article/page',
+      })
+      this.articleList = data.data.list;
+      this.total = data.data.pagination.total;
+    },
   }
 }
 </script>
@@ -81,7 +104,6 @@ export default {
     padding: 142px 0 138px 0;
     width: 100%;
     max-width: 1200px;
-    z-index: 2;
   }
   .headerBlock h1 {
     color: #222;
@@ -102,7 +124,6 @@ export default {
     width: 100%;
     max-width: 950px;
     padding: 50px 0 0 0;
-    z-index: 2;
   }
   .pag {
     background-color: #e5f8f3;
