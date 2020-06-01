@@ -29,6 +29,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
   text-align: left;
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 }
 li {
   list-style-type: none;
