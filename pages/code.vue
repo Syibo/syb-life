@@ -13,7 +13,7 @@
       <div class="contentsBlockcode">
         <div class="bodyIndexBlock">
           <el-row class="row_class">
-            <el-col :xs="24" v-for="(item, index) in articleList" :key="index">
+            <el-col :xs="24" v-for="(item, index) in articleList" :key="index" @click.native="openDia(item)">
               <code-compenents :content="item"></code-compenents>
             </el-col>
           </el-row>
@@ -37,6 +37,12 @@
       </div>
     </div>
     <Fotter :list="list" @type="type"></Fotter>
+    <el-dialog
+      title=""
+      :visible.sync="dialogVisible"
+      :fullscreen="true">
+        <Dialog :content="dialogData"></Dialog>
+      </el-dialog>
   </div>
 </template>
 
@@ -44,13 +50,15 @@
 import CodeCompenents from '~/components/code.vue'
 import Fotter from '../components/fotter.vue'
 import Menu from '../components/menu.vue'
+import Dialog from '../components/dialog.vue'
 import axios from 'axios'
 export default {
   name: 'Code',
   components: {
       CodeCompenents,
       Menu,
-      Fotter
+      Fotter,
+      Dialog
   },
   data() {
     return {
@@ -59,7 +67,9 @@ export default {
       page: 1,
       size: 10,
       total: 1,
-      articleList: []
+      articleList: [],
+      dialogVisible: false,
+      dialogData: {}
     }
   },
   async asyncData (context) {
@@ -112,7 +122,15 @@ export default {
       })
       this.articleList = data.data.list;
       this.total = data.data.pagination.total;
-    }
+    },
+    openDia(item) {
+      if (item.link) {
+        window.open(item.link, '_blank');
+      } else {
+        this.dialogData = item;
+        this.dialogVisible = true;
+      }
+    },
   }
 }
 </script>

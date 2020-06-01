@@ -1,10 +1,10 @@
 <template>
 <div class="dialog">
-  <div class="dialog_date">
-	  {{ content.createTime }}
-  </div>
   <div class="dialog_title">
 	  {{ content.title }}
+  </div>
+  <div class="dialog_date">
+	  {{ content.createTime }}
   </div>
   <div class="dialog_place">
 	  {{ content.place }}

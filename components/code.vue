@@ -1,5 +1,5 @@
 <template>
-<div class="code" @click="opUrl(content.link)">
+<div class="code">
     <div class="code_title">{{ content.title }}</div>
     <div class="code_date"> {{ content.updateTime }}</div>
 </div>
@@ -24,11 +24,11 @@ export default {
     }
   },
   methods: {
-    opUrl(link) {
-      if(this.isart) {
-        window.open(link, '_blank');
-      }
-    }
+    // opUrl(link) {
+    //   if(this.isart) {
+    //     window.open(link, '_blank');
+    //   }
+    // }
   }
 }
 </script>
