@@ -127,4 +127,7 @@ export default {
   position: absolute;
   width: 12px;
 }
+.dialog_div >>> img {
+  width: 50%;
+}
 </style>

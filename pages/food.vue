@@ -13,14 +13,20 @@
       <div class="contentsBlockcode">
         <div class="bodyIndexBlock">
           <el-row class="row_class" :gutter="20">
-            <el-col :xs="24" :sm="8" v-for="(item, index) in 5" :key="index">
-              <food-compenents></food-compenents>
+            <el-col :xs="24" :sm="8" v-for="(item, index) in food" :key="index" @click.native="openDia(item)">
+              <food-compenents :content="item"></food-compenents>
             </el-col>
           </el-row>
         </div>
       </div>
     </div>
     <Fotter :list="list"></Fotter>
+    <el-dialog
+      title=""
+      :visible.sync="dialogVisible"
+      :fullscreen="true">
+        <Dialog :content="dialogData"></Dialog>
+      </el-dialog>
     </div>
 </template>
 
@@ -28,32 +34,51 @@
 import Fotter from '../components/fotter.vue'
 import Menu from '../components/menu.vue'
 import FoodCompenents from '~/components/food.vue'
+import Dialog from '../components/dialog.vue'
 import axios from 'axios'
 export default {
   name: 'Food',
   components: {
       Menu,
       Fotter,
-      FoodCompenents
+      FoodCompenents,
+      Dialog
   },
   data() {
     return {
       list: [],
+      food: [],
+      total: 0,
+      dialogVisible: false,
+      dialogData: {}
     }
   },
-  async asyncData ({$axios, params, error }) {
+  async asyncData (context) {
     const [data, list] = await Promise.all([
-      $axios.get('/api/admin/web/artType/list'),
+      context.$axios.get('/api/admin/web/artType/list'),
+      context.$axios({
+        method: 'get',
+        params: {
+          page: 1,
+          size: 10
+        },
+        url: '/api/admin/web/food/page',
+      })
     ])
     return {
       list: data.data.data,
+      food: list.data.data.list,
+      total: list.data.data.pagination.total
     }
   },
   async mounted() {
 
   },
   methods: {
-
+    openDia(item) {
+      this.dialogData = item;
+      this.dialogVisible = true;
+    },
   }
 }
 </script>

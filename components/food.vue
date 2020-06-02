@@ -1,11 +1,11 @@
 <template>
 <div class="food">
     <el-card :body-style="{ padding: '0px' }" shadow="hover">
-        <img src="http://i1.chuimg.com/b356484c76094144a3755e0df6157025_1080w_864h.jpg@2o_50sh_1pr_1l_660w_90q_1wh" class="image">
+        <img :src="content.picture" class="image">
         <div style="padding: 14px;">
-        <span>好吃的汉堡</span>
+        <span>{{ content.title }}</span>
         <div class="bottom clearfix">
-            <time class="time">2020-03-23</time>
+            <time class="time">{{ content.updateTime }}</time>
         </div>
         </div>
     </el-card>
@@ -17,7 +17,10 @@
 export default {
   name: "FoodCompenents",
   props: {
-      
+      content: {
+          type: Object,
+          default: {},
+	  },
   },
   data() {
     return {

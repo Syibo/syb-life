@@ -13,29 +13,17 @@
       <div class="contentsBlockcode">
         <div class="bodyIndexBlock">
             <el-timeline>
-                <el-timeline-item timestamp="2018/4/12" placement="top">
-                <el-card>
-                    <h4 style="margin-bottom: 10px">2020年5月16第一次接回家 取名’石榴‘</h4>
-                    <div class="demo-image__preview">
-                      <el-image 
-                        style="width: 30%;"
-                        src="http://shenyibo.oss-cn-beijing.aliyuncs.com/9b98b5ab38a6eb5d3e4a325c11e42d1.jpg" 
-                        :preview-src-list="srcList">
-                      </el-image>
-                    </div>
-                </el-card>
-                </el-timeline-item>
-                <el-timeline-item timestamp="2018/4/3" placement="top">
-                <el-card>
-                    <h4>更新 Github 模板</h4>
-                    <p>王小虎 提交于 2018/4/3 20:46</p>
-                </el-card>
-                </el-timeline-item>
-                <el-timeline-item timestamp="2018/4/2" placement="top">
-                <el-card>
-                    <h4>更新 Github 模板</h4>
-                    <p>王小虎 提交于 2018/4/2 20:46</p>
-                </el-card>
+                <el-timeline-item timestamp="2018/4/12" placement="top" v-for="item in catList" :key="item.createTime">
+                  <el-card>
+                      <h4 style="margin-bottom: 10px">{{ item.title }}</h4>
+                      <div class="demo-image__preview">
+                        <el-image 
+                          style="width: 30%;"
+                          :src="item.picture" 
+                          :preview-src-list="srcList">
+                        </el-image>
+                      </div>
+                  </el-card>
                 </el-timeline-item>
             </el-timeline>
         </div>
@@ -58,17 +46,24 @@ export default {
   data() {
     return {
       list: [],
-      srcList: [
-        'http://shenyibo.oss-cn-beijing.aliyuncs.com/9b98b5ab38a6eb5d3e4a325c11e42d1.jpg'
-      ]
+      srcList: [],
+      catList: []
     }
   },
-  async asyncData ({$axios, params, error }) {
+  async asyncData (context) {
     const [data, list] = await Promise.all([
-      $axios.get('/api/admin/web/artType/list'),
+      context.$axios.get('/api/admin/web/artType/list'),
+      context.$axios.get('/api/admin/web/cat/list'),
     ])
+    let srcList = []
+    let catList = list.data.data;
+    for (let i = 0; i < catList.length; i++) {
+        srcList.push(catList[i].picture)
+    }
     return {
       list: data.data.data,
+      catList,
+      srcList,
     }
   },
   async mounted() {
