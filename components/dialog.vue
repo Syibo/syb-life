@@ -107,25 +107,31 @@ export default {
   line-height: 2.4;
   font-size: 15px;
 }
-.dialog_div >>> .ql-syntax {
-  background: #21252b;
+.dialog_div >>> ol {
+  background: #21252B;
   border-radius: 5px;
   box-shadow: 0 10px 30px 0 rgba(0,0,0,.4);
   margin-bottom: 1.6em;
-  padding: 30px 0 10px 15px;
-  color: white;
+  padding: 30px 0 10px 40px;
+  color: #666;
   font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
   overflow: hidden;
 }
-.dialog_div >>> .ql-syntax::before {
+.dialog_div >>> ol::before {
   background: #fc625d;
   border-radius: 50%;
   box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
   content: ' ';
   height: 12px;
   margin-top: -20px;
+  margin-left: -20px;
   position: absolute;
   width: 12px;
+}
+.dialog_div >>> ol li {
+  list-style-type: decimal;
+  background-color: black;
+  padding-left: 6px;
 }
 .dialog_div >>> img {
   width: 50%;
