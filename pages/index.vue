@@ -1,13 +1,16 @@
 <template>
   <div>
-    kkkkk
+    <Article v-for="(item, index) in 12" :key="index"></Article>
   </div>
 </template>
 
 <script>
-
+import Article from '../components/article'
 export default {
   name: 'Home',
+  components: {
+    Article
+  },
   data() {
     return {
       

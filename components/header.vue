@@ -53,6 +53,8 @@ export default {
       justify-content: space-around;
       .header_left {
         width: 220px;
+        display: flex;
+        justify-content: center;
         img {
           width: 100px;
         }
