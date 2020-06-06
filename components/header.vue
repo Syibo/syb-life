@@ -2,9 +2,15 @@
   <div class="header">
     <div class="gtu">
       <div class="cyf">
-        <div>1</div>
-        <div class="mid">2</div>
-        <div>3</div>
+        <div class="header_left">
+          <img src="../assets/images/syb_logo.png" />
+        </div>
+        <div class="mid">
+          <div class="header_item">首页 </div>
+          <div class="header_item">code</div>
+          <div class="header_item">life</div>
+        </div>
+        <div class="header_right">3</div>
       </div>
     </div>
   </div>
@@ -45,9 +51,30 @@ export default {
       display: flex;
       align-items: center;
       justify-content: space-around;
+      .header_left {
+        width: 220px;
+        img {
+          width: 100px;
+        }
+      }
       .mid {
-        width: 1000px;
-        outline: 1px solid springgreen;
+        flex: 1;
+        display: flex;
+        .header_item {
+          font-size: 17px;
+          color: #333;
+          padding: 0 20px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          height: 56px;
+        }
+        .header_item:hover {
+          background-color: #f2f2f2;
+        }
+      }
+      .header_right {
+        width: 220px;
       }
     }
   }
