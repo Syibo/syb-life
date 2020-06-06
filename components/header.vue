@@ -68,6 +68,9 @@ export default {
           width: 100px;
         }
       }
+      .header_left:hover {
+        cursor: pointer;
+      }
       .mid {
         flex: 1;
         display: flex;

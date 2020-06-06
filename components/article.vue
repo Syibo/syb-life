@@ -50,6 +50,9 @@ export default {
       line-height: 1.5;
       color: #333;
     }
+    .title:hover {
+      text-decoration:underline
+    }
     .abstract {
       margin: 0 0 8px;
       font-size: 13px;
@@ -60,6 +63,9 @@ export default {
       margin-right: 10px;
       color: #b4b4b4;
     }
+  }
+  .have_cont:hover {
+    cursor: pointer;
   }
   .have_img {
     width: 150px;
