@@ -6,11 +6,20 @@
           <img src="../assets/images/syb_logo.png" />
         </div>
         <div class="mid">
-          <div class="header_item">首页 </div>
+          <div class="header_item">home</div>
           <div class="header_item">code</div>
           <div class="header_item">life</div>
+          <div class="header_item">about</div>
         </div>
-        <div class="header_right">3</div>
+        <div class="header_right">
+            <el-input
+              placeholder="请输入内容"
+              suffix-icon="el-icon-search"
+              size="mini"
+              style="width: 260px"
+              v-model="input1">
+            </el-input>
+        </div>
       </div>
     </div>
   </div>
@@ -21,7 +30,7 @@
 export default {
   data() {
     return {
-      
+      input1: ''
     }
   },
   async mounted() {
@@ -76,7 +85,7 @@ export default {
         }
       }
       .header_right {
-        width: 220px;
+        width: 480px;
       }
     }
   }

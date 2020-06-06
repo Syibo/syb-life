@@ -13,19 +13,20 @@
           <img src="../assets/images/right1.png" />
           <img src="../assets/images/right1.png" />
         </div>
-
-        <div class="my_info">
-          <el-avatar src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"></el-avatar>
-          <div class="my_name">
-            <span class="name">yiboshen</span>
-            <span class="desc">搞前端的</span>
+        <div :class="isfix ? 'fixed' : ''">
+          <div class="my_info">
+            <el-avatar src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"></el-avatar>
+            <div class="my_name">
+              <span class="name">yiboshen</span>
+              <span class="desc">搞前端的</span>
+            </div>
           </div>
-        </div>
 
-        <div class="article">
-          <div class="article_item" v-for="(item, index) in 12" :key="index">
-            <img src="https://avatar-static.segmentfault.com/399/739/3997397795-5a6edc1c3167f_small" />
-            Html
+          <div class="article">
+            <div class="article_item" v-for="(item, index) in 12" :key="index">
+              <img src="https://avatar-static.segmentfault.com/399/739/3997397795-5a6edc1c3167f_small" />
+              Html
+            </div>
           </div>
         </div>
       </div>
@@ -38,11 +39,27 @@
 export default {
   data() {
     return {
-      
+      isfix: false
     }
   },
   async mounted() {
-
+    window.addEventListener("scroll",this.handleScroll);
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+    if (scrollTop > 217) {
+      this.isfix = true;
+    } else {
+      this.isfix = false;
+    }
+  },
+  methods: {
+    handleScroll() {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop > 217) {
+        this.isfix = true;
+      } else {
+        this.isfix = false;
+      }
+    }
   }
 }
 </script>
@@ -86,6 +103,11 @@ export default {
         img {
           width: 260px;
         }
+      }
+      .fixed {
+        position: fixed;
+        top: 60px;
+        width: 260px;
       }
       .my_info {
         margin-top: 6px;
