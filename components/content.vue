@@ -23,9 +23,11 @@
           </div>
 
           <div class="article">
-            <div class="article_item" v-for="(item, index) in 12" :key="index">
-              <img src="https://avatar-static.segmentfault.com/399/739/3997397795-5a6edc1c3167f_small" />
-              Html
+            <div class="article_item" v-for="(item, index) in typeList" :key="index">
+              <svg class="icon" aria-hidden="true">
+                <use :xlink:href="item.icon"></use>
+              </svg>
+              {{ item.name }}
             </div>
           </div>
         </div>
@@ -39,7 +41,24 @@
 export default {
   data() {
     return {
-      isfix: false
+      isfix: false,
+      typeList: [
+        {
+          name: 'Html',
+          icon: '#iconHTML'
+        },
+        { name: 'Css', icon: '#iconcss' },
+        { name: 'Javascript', icon: '#iconJavaScript' },
+        { name: 'Vue', icon: '#iconvue' },
+        { name: 'Element', icon: '#iconelema' },
+        { name: 'Flutter', icon: '#iconflutter-fill' },
+        { name: 'Nuxt', icon: '#iconnuxt' },
+        { name: 'Mysql', icon: '#iconmysql' },
+        { name: 'Egg', icon: '#iconEggs' },
+        { name: 'node', icon: '#iconnodejs' },
+        { name: 'linux', icon: '#iconlinux' },
+        { name: 'python', icon: '#iconpython' },
+      ]
     }
   },
   async mounted() {
@@ -84,7 +103,7 @@ export default {
     .main_left {
       flex-shrink: 0;
       width: 730px;
-      margin-bottom: 24px;
+      // margin-bottom: 24px;
       margin-right: 10px;
       min-height: 100px;
       section {
@@ -147,7 +166,7 @@ export default {
           height: 35px;
           padding: 0 15px 0 0;
           color: #757575;
-          img {
+          .icon {
             width: 16px;
             height: 16px;
             margin: 0 8px 0 16px;

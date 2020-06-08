@@ -2,6 +2,9 @@
   <div class="detail">
     <div class="title">{{ article.title }}</div>
     <!-- {{ article }} -->
+    <div class="dialog_img">
+      <img :src="article.picture" />
+    </div>
     <div class="dialog_div" v-html="article.content"></div>
   </div>
 </template>
@@ -20,13 +23,14 @@ export default {
   },
   async asyncData (content) {
     let id = (content.route.query.id == null ? 1 : content.route.query.id)
+    let type = (content.route.query.ty == null ? 'article' : content.route.query.ty)
     const [list] = await Promise.all([
       content.$axios({
         method: 'get',
         params: {
           id,
         },
-        url: '/api/admin/web/article/info',
+        url: `/api/admin/web/${type}/info`,
       })
     ])
     return {
@@ -49,8 +53,21 @@ export default {
     padding-bottom: 14px;
     margin-bottom: 15px;
   }
+  .dialog_img img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    margin: auto;
+  }
   .dialog_div {
     width: 100%;
+  } 
+  .dialog_div >>> p {
+    color: #606266;
+    text-indent: 2em;
+    line-height: 1.8;
+    font-size: 15px;
+    margin-bottom: 8px;
   }
   .dialog_div >>> ol {
     background: #21252B;

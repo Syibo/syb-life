@@ -9,8 +9,8 @@
         <span>{{ content.createTime }}</span>
       </div>
     </div>
-    <div class="have_img" v-show="content.pictrue">
-      <img src="https://upload-images.jianshu.io/upload_images/16647262-ab50d40ea017230a.jpeg?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240" />
+    <div class="have_img" v-show="content.picture">
+      <img :src="content.picture" />
     </div>
   </div>
 </template>
@@ -34,8 +34,11 @@ export default {
   },
   methods: {
     goDetail(c) {
-      console.log(c)
-      let routeData = this.$router.resolve({ path: 'detail', query: { id: c.id }});
+      let ty = 'article'
+      if (this.$route.name === 'life') {
+        ty = 'diary'
+      }
+      let routeData = this.$router.resolve({ path: 'detail', query: { id: c.id, ty }});
       window.open(routeData.href, '_blank');
     }
   }
@@ -88,5 +91,8 @@ export default {
       width: 100%;
     }
   }
+}
+.artic:nth-last-child(1) {
+  border: none
 }
 </style>
