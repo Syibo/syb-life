@@ -7,9 +7,9 @@
         </div>
         <div class="mid">
           <!-- <div class="header_item">home</div> -->
-          <div class="header_item">code</div>
-          <div class="header_item">life</div>
-          <div class="header_item">about</div>
+          <div class="header_item" @click="goHome">code</div>
+          <div class="header_item" @click="goLife">life</div>
+          <div class="header_item" @click="goAbout">about</div>
         </div>
         <div class="header_right">
             <el-input
@@ -39,6 +39,12 @@ export default {
   methods: {
     goHome() {
       this.$router.push({ path: '/' })
+    },
+    goLife() {
+      this.$router.push({ path: '/life' })
+    },
+    goAbout() {
+      this.$router.push({ path: '/about' })
     }
   }
 }
