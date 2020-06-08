@@ -1,15 +1,15 @@
 <template>
   <div class="artic">
-    <div class="have_cont">
-      <div class="title">《纸短情长》民国60余封情书</div>
+    <div class="have_cont" @click="goDetail(content)">
+      <div class="title">{{ content.title }}</div>
       <div class="abstract">
         你要做一个不动声色的大人了。不准情绪化，不准偷偷想念，不准回头看。去过自己另外的生活。你要听话，不是所有的鱼都会生活在同一片海里。 -- 村上
       </div>
       <div class="art_bot">
-        <span>2020-01-23</span>
+        <span>{{ content.createTime }}</span>
       </div>
     </div>
-    <div class="have_img">
+    <div class="have_img" v-show="content.pictrue">
       <img src="https://upload-images.jianshu.io/upload_images/16647262-ab50d40ea017230a.jpeg?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240" />
     </div>
   </div>
@@ -23,8 +23,21 @@ export default {
       
     }
   },
+  props: {
+    content: {
+      type: Object,
+      default: {},
+    }
+  },
   async mounted() {
 
+  },
+  methods: {
+    goDetail(c) {
+      console.log(c)
+      let routeData = this.$router.resolve({ path: 'detail', query: { id: c.id }});
+      window.open(routeData.href, '_blank');
+    }
   }
 }
 </script>
@@ -62,6 +75,7 @@ export default {
     .art_bot {
       margin-right: 10px;
       color: #b4b4b4;
+      font-size: 12px;
     }
   }
   .have_cont:hover {

@@ -2,11 +2,11 @@
   <div class="header">
     <div class="gtu">
       <div class="cyf">
-        <div class="header_left">
+        <div class="header_left" @click="goHome">
           <img src="../assets/images/syb_logo.png" />
         </div>
         <div class="mid">
-          <div class="header_item">home</div>
+          <!-- <div class="header_item">home</div> -->
           <div class="header_item">code</div>
           <div class="header_item">life</div>
           <div class="header_item">about</div>
@@ -35,6 +35,11 @@ export default {
   },
   async mounted() {
 
+  },
+  methods: {
+    goHome() {
+      this.$router.push({ path: '/' })
+    }
   }
 }
 </script>
