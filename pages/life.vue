@@ -35,6 +35,7 @@ export default {
     return {
       diaryList: [],
       total: 0,
+      currentPage1: 1,
       typeList: [
         { name: 'pic', icon: '#icontupian', content: '图片' },
         { name: 'Css', icon: '#iconmiao', content: '笔记' },

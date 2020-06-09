@@ -2,8 +2,8 @@
   <div class="artic">
     <div class="have_cont" @click="goDetail(content)">
       <div class="title">{{ content.title }}</div>
-      <div class="abstract">
-        你要做一个不动声色的大人了。不准情绪化，不准偷偷想念，不准回头看。去过自己另外的生活。你要听话，不是所有的鱼都会生活在同一片海里。 -- 村上
+      <div class="abstract" v-if='content.content'>
+        {{ content.content.substring(0, 120) }}...
       </div>
       <div class="art_bot">
         <span>{{ content.createTime }}</span>
