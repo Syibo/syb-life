@@ -9,16 +9,21 @@
         </el-tooltip>
       </div>
     </div>
-    <Article :content="item" v-for="(item, index) in diaryList" :key="index"></Article>
+    <div v-for="(item, index) in diaryList" :key="index">
+      <Pictrue v-if="item.type === 'cat'" :content="item"></Pictrue>
+      <Article v-else :content="item"></Article>
+    </div>
   </div>
 </template>
 
 <script>
 import Article from '../components/article'
+import Pictrue from '../components/pictrue'
 export default {
   name: 'Life',
   components: {
-    Article
+    Article,
+    Pictrue
   },
   data() {
     return {
