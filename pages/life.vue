@@ -10,9 +10,15 @@
       </div>
     </div>
     <div v-for="(item, index) in diaryList" :key="index">
-      <Pictrue v-if="item.type === 'cat'" :content="item"></Pictrue>
+      <Pictrue v-if="item.type === 'cat' || item.type === 'music'" :content="item"></Pictrue>
       <Article v-else :content="item"></Article>
     </div>
+    <el-pagination
+      :current-page.sync="currentPage1"
+      :page-size="10"
+      layout="total, prev, pager, next"
+      :total="total">
+    </el-pagination>
   </div>
 </template>
 
@@ -63,6 +69,9 @@ export default {
 
 <style lang="less" scoped>
 .life {
+  .el-pagination {
+    text-align: right;
+  }
   .life_type {
     width: 100%;
     height: 40px;

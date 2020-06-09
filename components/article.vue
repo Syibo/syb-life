@@ -92,7 +92,4 @@ export default {
     }
   }
 }
-.artic:nth-last-child(1) {
-  border: none
-}
 </style>

@@ -7,7 +7,6 @@
       layout="total, prev, pager, next"
       :total="total">
     </el-pagination>
-    <!-- {{articleList}} -->
   </div>
 </template>
 

@@ -2,7 +2,12 @@
   <div class="artic">
     <div class="have_cont">
       <div class="title">{{ content.title }}</div>
-      <div class="abstract">
+      <div class="abstract" v-if="content.link">
+        <audio :src="content.link" controls="controls">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      <div class="abstract" v-else>
         <div class="abstract_item" v-for="(item, index) in content.picture.split(',')" :key="index">
           <el-image
             :src="item" 
@@ -79,6 +84,10 @@ export default {
           width: 100%;
         }
       }
+      audio {
+        width: 100%;
+        margin: 10px 0;
+      }
     }
     .art_bot {
       margin-right: 10px;
@@ -96,8 +105,5 @@ export default {
       width: 100%;
     }
   }
-}
-.artic:nth-last-child(1) {
-  border: none
 }
 </style>
