@@ -8,14 +8,30 @@
       </div>
       <div class="main_right">
         <div class="right_cont">
-          <img src="../assets/images/right1.png" />
-          <img src="../assets/images/right1.png" />
-          <img src="../assets/images/right1.png" />
-          <img src="../assets/images/right1.png" />
+          <div class="right_cont_item" @click="goCms">
+            <div>cms</div>
+            <span></span>
+            <span class="iconfont iconhoutaizonglan"></span>
+          </div>
+          <div class="right_cont_item right_cont_about">
+            <div>about me</div>
+            <span></span>
+            <span class="iconfont iconaboutus"></span>
+          </div>
+          <div class="right_cont_item right_cont_resume">
+            <div>resume</div>
+            <span></span>
+            <span class="iconfont iconai-resume"></span>
+          </div>
+          <div class="right_cont_item right_cont_git" @click="goGit">
+            <div>resume</div>
+            <span></span>
+            <span class="iconfont icongithub"></span>
+          </div>
         </div>
         <div :class="isfix ? 'fixed' : ''">
           <div class="my_info">
-            <el-avatar src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"></el-avatar>
+            <el-avatar src="https://shenyibo.oss-cn-beijing.aliyuncs.com/20200610/fcbe0f70-aadd-11ea-b288-0da097a41994.jpg"></el-avatar>
             <div class="my_name">
               <span class="name">yiboshen</span>
               <span class="desc">搞前端的</span>
@@ -86,6 +102,12 @@ export default {
           type: item.name
         }
       })
+    },
+    goCms() {
+      window.open('http://47.107.48.44:9000', '_blank');
+    },
+    goGit() {
+      window.open('https://github.com/Syibo', '_blank');
     }
   }
 }
@@ -124,9 +146,49 @@ export default {
     .main_right {
       flex-shrink: 0;
       width: 260px;
-      // background-color: white;
       min-height: 100px;
       .right_cont {
+        .right_cont_item {
+          width: 260px;
+          height: 46px;
+          display: flex;
+          color: white;
+          padding: 0 15px;
+          background-color: rgb(255, 184, 79);
+          border-radius: 5px;
+          align-items: center;
+          justify-content: space-between;
+          font-size: 20px;
+          margin-bottom: 10px;
+          span {
+            font-size: 46px;
+            color: #F9A214;
+          }
+        }
+        .right_cont_item:hover {
+          cursor: pointer;
+        }
+        .right_cont_about {
+          background-color: rgb(193, 228, 222);
+          span {
+            font-size: 46px;
+            color: rgb(112, 182, 170);
+          }
+        }
+        .right_cont_resume {
+          background-color: rgb(244, 224, 189);
+          span {
+            font-size: 40px;
+            color: rgb(222, 180, 104);
+          }
+        }
+        .right_cont_git {
+          background-color: rgb(183, 214, 236);
+          span {
+            font-size: 40px;
+            color: rgb(100, 171, 211);
+          }
+        }
         img {
           width: 260px;
         }

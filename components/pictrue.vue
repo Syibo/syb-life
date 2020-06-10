@@ -7,7 +7,7 @@
           Your browser does not support the audio element.
         </audio>
       </div>
-      <div class="abstract" v-else>
+      <div class="abstract">
         <div class="abstract_item" v-for="(item, index) in content.picture.split(',')" :key="index">
           <el-image
             :src="item" 
