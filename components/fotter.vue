@@ -7,16 +7,14 @@
         <div>
         <img src="http://shenyibo.oss-cn-beijing.aliyuncs.com/a4b85644d30139aae26160a39059691.jpg" width="200" height="265">
         </div>
-        <el-button style="background: #29C4A0;color: white;border: none;margin-right: 20px" slot="reference" icon="el-icon-mobile" circle></el-button>
+        <svg class="icon" style="width: 40px;height: 40px;margin-right: 20px;cursor: pointer;" slot="reference" aria-hidden="true">
+          <use xlink:href="#iconweixin1"></use>
+        </svg>
       </el-popover>
-      <el-popover
-        placement="top"
-        trigger="hover">
-        <div>
-        <img src="http://shenyibo.oss-cn-beijing.aliyuncs.com/a4b85644d30139aae26160a39059691.jpg" width="200" height="265">
-        </div>
-        <el-button style="background: #29C4A0;color: white;border: none;" slot="reference" icon="el-icon-mobile" circle></el-button>
-      </el-popover>
+
+      <svg class="icon" style="width: 34px;height: 34px;margin-top: -9px;cursor: pointer;" @click="goGit">
+        <use xlink:href="#icongithub"></use>
+      </svg>
     </div>
 
     <div class="fotter_logo">
@@ -24,10 +22,10 @@
     </div>
 
     <div>
-      Fin/dについて 免責事項
+      免責事項
     </div>
     <div>
-      © 2019 HIKARINA INC.
+      © 2020.
     </div>
   </div>
 </template>
@@ -44,6 +42,9 @@ export default {
 
   },
   methods: {
+    goGit() {
+      window.open('https://github.com/Syibo', '_blank');
+    }
   }
 }
 </script>
