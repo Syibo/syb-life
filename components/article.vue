@@ -46,6 +46,11 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@media screen and (max-width: 767px) {
+  .have_img {
+    display: none!important;
+  }
+}
 .artic {
   display: flex;
   width: 100%;
