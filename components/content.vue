@@ -23,7 +23,7 @@
           </div>
 
           <div class="article">
-            <div class="article_item" v-for="(item, index) in typeList" :key="index">
+            <div class="article_item" v-for="(item, index) in typeList" :key="index" @click="selectType(item)">
               <svg class="icon" aria-hidden="true">
                 <use :xlink:href="item.icon"></use>
               </svg>
@@ -78,6 +78,14 @@ export default {
       } else {
         this.isfix = false;
       }
+    },
+    selectType(item) {
+      this.$router.push({
+        path: '/',
+        query: {
+          type: item.name
+        }
+      })
     }
   }
 }

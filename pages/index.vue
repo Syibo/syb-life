@@ -3,6 +3,7 @@
     <Article :content="item" v-for="(item, index) in articleList" :key="index"></Article>
     <el-pagination
       :current-page.sync="currentPage1"
+      @current-change="handleCurrentChange"
       :page-size="10"
       layout="total, prev, pager, next"
       :total="total">
@@ -22,15 +23,17 @@ export default {
     return {
       currentPage1: 1,
       articleList: [],
-      total: 0
+      total: 0,
+      keyWord: ''
     }
   },
-  async asyncData (context) {
+  async asyncData (content) {
+    let type = (content.route.query.type == null ? '' : content.route.query.type);
     const [list] = await Promise.all([
-      context.$axios({
+      content.$axios({
         method: 'get',
         params: {
-          keyWord: context.store.state.article.type,
+          keyWord: type,
           page: 1,
           size: 10
         },
@@ -39,11 +42,33 @@ export default {
     ])
     return {
       articleList: list.data.data.list,
-      total: list.data.data.pagination.total
+      total: list.data.data.pagination.total,
+      keyWord: type
+    }
+  },
+  watch: {
+    $route (to, from) {
+      this.$router.go(0)
     }
   },
   async mounted() {
-
+    
+  },
+  methods: {
+    async handleCurrentChange(val) {
+      this.currentPage1 = val;
+      const res = await axios({
+        method: 'get',
+        params: {
+          keyWord: this.keyWord,
+          page: this.currentPage1,
+          size: 10
+        },
+        url: '/api/admin/web/article/page',
+      })
+      this.articleList = res.data.data.list;
+      document.documentElement.scrollTop = 0;
+    }
   }
 }
 </script>

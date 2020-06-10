@@ -3,6 +3,7 @@
     <Header></Header>
     <Content></Content>
     <Fotter></Fotter>
+    <el-backtop></el-backtop>
   </div>
 </template>
 
