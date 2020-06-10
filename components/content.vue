@@ -24,7 +24,7 @@
             <span class="iconfont iconai-resume"></span>
           </div>
           <div class="right_cont_item right_cont_git" @click="goGit">
-            <div>resume</div>
+            <div>github</div>
             <span></span>
             <span class="iconfont icongithub"></span>
           </div>
