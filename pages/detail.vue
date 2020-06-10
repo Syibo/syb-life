@@ -64,7 +64,6 @@ export default {
   } 
   .dialog_div >>> p {
     color: #606266;
-    text-indent: 2em;
     line-height: 1.8;
     font-size: 15px;
     margin-bottom: 8px;

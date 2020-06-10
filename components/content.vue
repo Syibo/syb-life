@@ -114,6 +114,19 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@media screen and (max-width: 767px) {
+  .main {
+    width: 100%!important;
+    padding-left: 0!important;
+    padding-right: 0!important;
+    .main_left {
+      width: 100%!important;
+    }
+    .main_right {
+      display: none;
+    }
+  }
+}
 .content {
   background-color: #f9f9f9;
   margin-top: 56px;

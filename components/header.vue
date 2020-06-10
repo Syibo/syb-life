@@ -51,6 +51,18 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@media screen and (max-width: 767px) {
+	.header_left {
+    display: none;
+  }
+  .header_right {
+    display: none;
+  }
+  .cyf {
+    min-width: 12px!important;
+    width: 100%;
+  }
+}
 .header {
   width: 100%;
   .gtu {
@@ -73,10 +85,10 @@ export default {
       justify-content: space-around;
       .header_left {
         width: 220px;
-        display: flex;
-        justify-content: center;
+        text-align: center;
         img {
           width: 100px;
+          margin: auto;
         }
       }
       .header_left:hover {

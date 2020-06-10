@@ -49,6 +49,11 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@media screen and (max-width: 767px) {
+  .fotter {
+    width: 100%!important;
+  }
+}
 .fotter {
   background-color: white;
   display: flex;
