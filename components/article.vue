@@ -3,7 +3,7 @@
     <div class="have_cont" @click="goDetail(content)">
       <div class="title">{{ content.title }}</div>
       <div class="abstract" v-if='content.content'>
-        {{ content.content.substring(0, 120) }}...
+        {{ content.content.substring(3, 120) }}...
       </div>
       <div class="art_bot">
         <span>{{ content.createTime }}</span>
