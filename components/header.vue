@@ -50,15 +50,18 @@ export default {
   },
   methods: {
     goHome() {
-      console.log(this.$route)
-      if (JSON.stringify(this.$route.query) === '{}') {
+      if (JSON.stringify(this.$route.query) === '{}' && this.$route.name === 'index') {
         this.$router.go(0)
       } else {
         this.$router.push({ path: '/' })
       }
     },
     goLife() {
-      this.$router.push({ path: '/life' })
+      if (this.$route.name === 'life') {
+        this.$router.go(0)
+      } else {
+        this.$router.push({ path: '/life' })
+      }
     },
     goAbout() {
       this.$router.push({ path: '/about' })

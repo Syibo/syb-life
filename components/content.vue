@@ -13,20 +13,20 @@
             <span></span>
             <span class="iconfont iconhoutaizonglan"></span>
           </div>
-          <div class="right_cont_item right_cont_about">
+          <div class="right_cont_item right_cont_about" @click="goResume">
             <div>about me</div>
             <span></span>
             <span class="iconfont iconaboutus"></span>
-          </div>
-          <div class="right_cont_item right_cont_resume" @click="goResume">
-            <div>resume</div>
-            <span></span>
-            <span class="iconfont iconai-resume"></span>
           </div>
           <div class="right_cont_item right_cont_git" @click="goGit">
             <div>github</div>
             <span></span>
             <span class="iconfont icongithub"></span>
+          </div>
+          <div class="right_cont_item right_cont_resume" @click="goContact">
+            <div>contact</div>
+            <span></span>
+            <span class="iconfont iconai-resume"></span>
           </div>
         </div>
         <div :class="isfix ? 'fixed' : ''">
@@ -71,9 +71,9 @@ export default {
         { name: 'Nuxt', icon: '#iconnuxt' },
         { name: 'Mysql', icon: '#iconmysql' },
         { name: 'Egg', icon: '#iconEggs' },
-        { name: 'node', icon: '#iconnodejs' },
-        { name: 'linux', icon: '#iconlinux' },
-        { name: 'python', icon: '#iconpython' },
+        { name: 'Node', icon: '#iconnodejs' },
+        { name: 'Linux', icon: '#iconlinux' },
+        { name: 'Python', icon: '#iconpython' },
       ]
     }
   },
@@ -111,6 +111,11 @@ export default {
     },
     goResume() {
       window.open('http://139.196.51.218:4000', '_blank');
+    },
+    goContact() {
+      this.$router.push({
+        name: 'contact'
+      })
     }
   }
 }
