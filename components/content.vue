@@ -18,7 +18,7 @@
             <span></span>
             <span class="iconfont iconaboutus"></span>
           </div>
-          <div class="right_cont_item right_cont_resume">
+          <div class="right_cont_item right_cont_resume" @click="goResume">
             <div>resume</div>
             <span></span>
             <span class="iconfont iconai-resume"></span>
@@ -104,10 +104,13 @@ export default {
       })
     },
     goCms() {
-      window.open('http://47.107.48.44:9000', '_blank');
+      window.open('http://139.196.51.218:9000', '_blank');
     },
     goGit() {
       window.open('https://github.com/Syibo', '_blank');
+    },
+    goResume() {
+      window.open('http://139.196.51.218:4000', '_blank');
     }
   }
 }

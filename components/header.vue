@@ -12,13 +12,25 @@
           <div class="header_item" @click="goAbout">about</div>
         </div>
         <div class="header_right">
-            <el-input
-              placeholder="请输入内容"
-              suffix-icon="el-icon-search"
-              size="mini"
-              style="width: 260px"
-              v-model="input1">
-            </el-input>
+          <!-- <el-input
+            placeholder="回车搜索"
+            suffix-icon="el-icon-search"
+            size="mini"
+            style="width: 260px"
+            @keyup.enter.native="seachKeyword"
+            v-model="keyWord">
+          </el-input> -->
+
+          <el-input
+            style="width: 260px"
+            v-model.trim="keyWord"
+            placeholder="搜索"
+            @keyup.enter.native="seachKeyword"
+            size="mini">
+            <template v-slot:append>
+                <el-button type="primary" icon="el-icon-search" size="mini" @click="seachKeyword"/>
+            </template>
+          </el-input>
         </div>
       </div>
     </div>
@@ -30,7 +42,7 @@
 export default {
   data() {
     return {
-      input1: ''
+      keyWord: ''
     }
   },
   async mounted() {
@@ -38,13 +50,21 @@ export default {
   },
   methods: {
     goHome() {
-      this.$router.push({ path: '/' })
+      console.log(this.$route)
+      if (JSON.stringify(this.$route.query) === '{}') {
+        this.$router.go(0)
+      } else {
+        this.$router.push({ path: '/' })
+      }
     },
     goLife() {
       this.$router.push({ path: '/life' })
     },
     goAbout() {
       this.$router.push({ path: '/about' })
+    },
+    seachKeyword() {
+      this.$bus.$emit('handClickSeach', { keyWord: this.keyWord })
     }
   }
 }

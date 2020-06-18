@@ -31,7 +31,9 @@ export default {
   */
   plugins: [
     '@/plugins/element-ui',
-    { src: '@/assets/js/iconfont.js', ssr: false }
+    { src: '@/assets/js/iconfont.js', ssr: false },
+    '@/plugins/bus-inject.js',
+    {src:'@/plugins/bus-inject.js', ssr: false}
   ],
   /*
   ** Nuxt.js dev-modules
@@ -50,8 +52,8 @@ export default {
   },
   proxy: {
     '/api': {
-      target: 'http://139.196.51.218:7001',
-      // target: 'http://127.0.0.1:7001',
+      // target: 'http://139.196.51.218:7001',
+      target: 'http://127.0.0.1:7001',
       pathRewrite: {
         '^/api': '/',
       }

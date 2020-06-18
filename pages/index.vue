@@ -51,6 +51,13 @@ export default {
       this.$router.go(0)
     }
   },
+  created() {
+    this.$bus.$on('handClickSeach', (data) => {
+      this.currentPage1 = 1;
+      this.keyWord = data.keyWord;
+      this.handleCurrentChange()
+    })
+  },
   async mounted() {
     
   },
@@ -67,6 +74,7 @@ export default {
         url: '/api/admin/web/article/page',
       })
       this.articleList = res.data.data.list;
+      this.total = res.data.data.pagination.total;
       document.documentElement.scrollTop = 0;
     }
   }
