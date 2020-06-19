@@ -93,6 +93,9 @@ export default {
     list-style-type: decimal;
     background-color: black;
     padding-left: 6px;
+    color: #ccc;
+    font-size: 14px;
+    font-family: Consolas,Monaco,"Andale Mono","Ubuntu Mono",monospace;
   }
   .dialog_div >>> img {
     width: 100%;
