@@ -104,13 +104,13 @@ export default {
       })
     },
     goCms() {
-      window.open('http://139.196.51.218:9000', '_blank');
+      window.open('http://cms.shenyibo.life', '_blank');
     },
     goGit() {
       window.open('https://github.com/Syibo', '_blank');
     },
     goResume() {
-      window.open('http://139.196.51.218:4000', '_blank');
+      window.open('http://resume.shenyibo.life', '_blank');
     },
     goContact() {
       this.$router.push({

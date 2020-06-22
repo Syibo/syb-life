@@ -21,11 +21,11 @@
       <img src="../assets/images/syb_logo.png" />
     </div>
 
-    <div>
-      免責事項
+    <div class="beian">
+      赣ICP备20008187号-1
     </div>
-    <div>
-      © 2020.
+    <div class="beian">
+       本网站由阿里云提供云计算及安全服务 
     </div>
   </div>
 </template>
@@ -84,6 +84,11 @@ export default {
     img {
       width: 150px;
     }
+  }
+  .beian {
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 5px;
   }
 }
 </style>
