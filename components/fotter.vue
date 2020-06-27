@@ -22,10 +22,10 @@
     </div>
 
     <div class="beian">
-      赣ICP备20008187号-1
+      <el-link :underline="false" href="http://www.beian.miit.gov.cn/" target="_blank">赣ICP备20008187号-1</el-link>
     </div>
     <div class="beian">
-       本网站由阿里云提供云计算及安全服务 
+      <el-link :underline="false" href="https://www.aliyun.com/?spm=5176.13985499.fnqwg5agi.2.502865f0plgshn" target="_blank">本网站由阿里云提供云计算及安全服务</el-link>
     </div>
   </div>
 </template>
