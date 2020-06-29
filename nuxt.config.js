@@ -9,7 +9,8 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { name: 'keywords', content: '沈意波,沈bb,这里是沈意波的个人博客,分享技术和生活,程序员,开发者,个人网站,专注前端开发,shenyibo,life' },
+      { hid: 'description', name: 'description', content: '沈意波的个人小站' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/syblife.ico' }
