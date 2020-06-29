@@ -38,8 +38,12 @@ export default {
       if (this.$route.name === 'life') {
         ty = 'diary'
       }
-      let routeData = this.$router.resolve({ path: 'detail', query: { id: c.id, ty }});
-      window.open(routeData.href, '_blank');
+      if (c.link) {
+        window.open(c.link, '_blank');
+      } else {
+        let routeData = this.$router.resolve({ path: 'detail', query: { id: c.id, ty }});
+        window.open(routeData.href, '_blank');
+      }
     }
   }
 }
