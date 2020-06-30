@@ -110,7 +110,7 @@ export default {
       margin: 5px 0;
     }
     .demo-image__preview {
-      height: 155px;
+      min-height: 115px;
     }
     .ol_cla {
       padding-left: 10px;
