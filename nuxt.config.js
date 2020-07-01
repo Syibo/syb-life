@@ -53,7 +53,7 @@ export default {
   },
   proxy: {
     '/api': {
-      target: 'http://139.196.51.218:7001',
+      target: 'https://api.shenyibo.life',
       // target: 'http://127.0.0.1:7001'
       pathRewrite: {
         '^/api': '/',
