@@ -77,9 +77,9 @@ export default {
         'https://shenyibo.oss-cn-beijing.aliyuncs.com/static/ffujm.jpg'
       ],
       srcList1: [
-        'https://shenyibo.oss-cn-beijing.aliyuncs.com/static/adda.jpg',
+        'https://shenyibo.oss-cn-beijing.aliyuncs.com/static/home.jpg',
         'https://shenyibo.oss-cn-beijing.aliyuncs.com/static/fffa.jpg',
-        'https://shenyibo.oss-cn-beijing.aliyuncs.com/static/asdddd.jpg',
+        'https://shenyibo.oss-cn-beijing.aliyuncs.com/static/log.jpg',
       ]
     }
   },

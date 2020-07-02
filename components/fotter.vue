@@ -5,7 +5,7 @@
         placement="top"
         trigger="hover">
         <div>
-        <img src="http://shenyibo.oss-cn-beijing.aliyuncs.com/a4b85644d30139aae26160a39059691.jpg" width="200" height="265">
+        <img src="https://shenyibo.oss-cn-beijing.aliyuncs.com/a4b85644d30139aae26160a39059691.jpg" width="200" height="265">
         </div>
         <svg class="icon" style="width: 40px;height: 40px;margin-right: 20px;cursor: pointer;" slot="reference" aria-hidden="true">
           <use xlink:href="#iconweixin1"></use>
