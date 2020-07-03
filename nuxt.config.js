@@ -14,6 +14,9 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/syblife.ico' }
+    ],
+    script: [
+      { src: 'https://files.cnblogs.com/files/liuzhou1/L2Dwidget.min.js' }
     ]
   },
   /*
@@ -34,7 +37,7 @@ export default {
     '@/plugins/element-ui',
     { src: '@/assets/js/iconfont.js', ssr: false },
     '@/plugins/bus-inject.js',
-    {src:'@/plugins/bus-inject.js', ssr: false}
+    { src:'@/plugins/bus-inject.js', ssr: false },
   ],
   /*
   ** Nuxt.js dev-modules

@@ -34,7 +34,7 @@
             <el-avatar src="https://shenyibo.oss-cn-beijing.aliyuncs.com/20200610/fcbe0f70-aadd-11ea-b288-0da097a41994.jpg"></el-avatar>
             <div class="my_name">
               <span class="name">yiboshen</span>
-              <span class="desc">搞前端的</span>
+              <span class="desc">前端开发</span>
             </div>
           </div>
 

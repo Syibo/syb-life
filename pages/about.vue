@@ -55,8 +55,8 @@
       </ol>
     </div>
     <h3>-关于我</h3>
-    <p>
-     刚进入互联网的小码农一枚，人生三大爱好 lol nba html。
+    <p style="font-size: 14px">
+      &nbsp;&nbsp;江西九江，主要从事前端开发工作，是一位热衷代码，热爱生活的95后，喜欢Lol，Nba，Vue，Python。
     </p>
   </div>
 </template>
