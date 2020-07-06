@@ -23,8 +23,8 @@ export default {
   mounted() {
     L2Dwidget.init({"display": {
         "superSample": 2,
-        "width": 200,
-        "height": 400,
+        "width": 100,
+        "height": 200,
         "position": "left",
         "hOffset": 10,
         "vOffset": 0
@@ -36,6 +36,10 @@ export default {
 </script>
 
 <style>
+canvas#live2dcanvas {
+  border: 0 !important;
+  right: 0;
+}
 html {
   font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
   font-size: 16px;

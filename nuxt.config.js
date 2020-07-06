@@ -16,7 +16,7 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/syblife.ico' }
     ],
     script: [
-      { src: 'https://files.cnblogs.com/files/liuzhou1/L2Dwidget.min.js' }
+      { src: 'https://cdn.jsdelivr.net/npm/live2d-widget@3.0.4/lib/L2Dwidget.min.js' }
     ]
   },
   /*
