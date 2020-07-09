@@ -15,9 +15,6 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/syblife.ico' }
     ],
-    script: [
-      { src: 'https://cdn.jsdelivr.net/npm/live2d-widget@3.0.4/lib/L2Dwidget.min.js' }
-    ]
   },
   /*
   ** Customize the progress-bar color
