@@ -1,8 +1,8 @@
 <template>
   <div class="about">
-    <h3>-关于dd这个站点</h3>
+    <h3>-关于这个站点</h3>
     <!-- <img src="https://shenyibo.oss-cn-beijing.aliyuncs.com/20200527/2356.jpg"/>
-    <h3>-记录问题和解决方案</h3> -->
+    <h3>-记录问题解决方案</h3> -->
     <p>
       &nbsp;&nbsp;18年毕业到20年初毕业一年半的时间一直在做前端开发，中间在空闲之余学习了node和python相关的知识，但一直没有去实践，20年初因为疫情在家办公一个多月，就开始慢慢的边找资料边写代码，
       做一个博客(ui参考简书&SegmentFault)记录相关知识和生活。
