@@ -9,3 +9,9 @@ script:
 before_install:
 - openssl aes-256-cbc -K $encrypted_9b2d7e19d83c_key -iv $encrypted_9b2d7e19d83c_iv
   -in id_rsa.enc -out ~/.ssh/id_rsa -d
+addons:
+  ssh_known_hosts:
+  - 139.196.51.218
+after_success:
+- chmod 600 ~/.ssh/id_rsa
+- ssh root@139.196.51.218 -o StrictHostKeyChecking=no 'cd /usr/local/syb/syb-life/ && pm2 delete syb-life && git pull && npm run build && npm install && pm2 start npm --name "syb-life" -- run start'
