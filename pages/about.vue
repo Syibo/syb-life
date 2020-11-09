@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h3>-关于这个站点</h3>
+    <h3>-关于这个站点home travis test</h3>
     <!-- <img src="https://shenyibo.oss-cn-beijing.aliyuncs.com/20200527/2356.jpg"/>
     <h3>-记录问题解决方案</h3> -->
     <p>
