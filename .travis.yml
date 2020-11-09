@@ -19,4 +19,4 @@ after_success:
 - chmod 600 ~/.ssh/id_rsa
 - rsync -az --delete ./dist/* root@139.196.51.218:/usr/local/syb/nuxt
 - rsync -az --delete .nuxt nuxt.config.js package.json root@139.196.51.208:/usr/local/syb/nuxt
-- ssh root@139.196.51.218 -o StrictHostKeyChecking=no 'cd /usr/local/syb/syb-life/ && pm2 delete syb-life && npm install && pm2 start npm --name "syb-life" -- run start'
+- ssh root@139.196.51.218 -o StrictHostKeyChecking=no 'cd /usr/local/syb/nuxt/ && npm install && pm2 restart syb-life || pm2 start npm --name "syb-life" -- run start'
