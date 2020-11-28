@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h3>-关于这个站点home travis test</h3>
+    <h3>-关于这个站点</h3>
     <!-- <img src="https://shenyibo.oss-cn-beijing.aliyuncs.com/20200527/2356.jpg"/>
     <h3>-记录问题解决方案</h3> -->
     <p>
@@ -56,7 +56,7 @@
     </div>
     <h3>-关于我</h3>
     <p>
-      &nbsp;&nbsp;江西九江，主要从事前端开发工作，是一位热衷代码，热爱生活的95后，喜欢Nba，Lol，Vue，Node，Python。
+      &nbsp;&nbsp;江西九江，主要从事前端开发工作，是一位热衷代码，热爱生活的95后，喜欢Nba，Lol，Vue，Node，Flutter。
     </p>
   </div>
 </template>
