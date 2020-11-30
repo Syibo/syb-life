@@ -14,4 +14,4 @@ addons:
   - 139.196.51.218
 after_success:
 - chmod 600 ~/.ssh/id_rsa
-- ssh root@139.196.51.218 -o StrictHostKeyChecking=no 'cd /usr/local/syb/syb-life/ && git pull && npm run build && pm2 restart syb-life || pm2 start npm --name "syb-life" -- run start'
+- ssh root@139.196.51.218 -o StrictHostKeyChecking=no 'cd /usr/local/syb/syb-life/ && git pull && npm run build && pm2 delete syb-life && pm2 start npm --name "syb-life" -- run start'
