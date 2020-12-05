@@ -25,7 +25,7 @@ export default {
   */
   css: [
     'element-ui/lib/theme-chalk/index.css',
-    '~/assets/css/iconfont.css'
+    '~/assets/css/iconfont.css',
   ],
   /*
   ** Plugins to load before mounting the App
@@ -34,7 +34,8 @@ export default {
     '@/plugins/element-ui',
     { src: '@/assets/js/iconfont.js', ssr: false },
     '@/plugins/bus-inject.js',
-    { src:'@/plugins/bus-inject.js', ssr: false },
+    { src: '@/plugins/bus-inject.js', ssr: false },
+    { src: '@/plugins/vue-meditor.js', ssr: false}
   ],
   /*
   ** Nuxt.js dev-modules
@@ -54,7 +55,7 @@ export default {
   proxy: {
     '/api': {
       target: 'https://api.shenyibo.life',
-      // target: 'http://127.0.0.1:7001'
+      // target: 'http://127.0.0.1:7001',
       pathRewrite: {
         '^/api': '/',
       }

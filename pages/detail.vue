@@ -1,11 +1,15 @@
 <template>
   <div class="detail">
     <div class="title">{{ article.title }}</div>
-    <!-- {{ article }} -->
     <div class="dialog_img">
       <img :src="article.picture" />
     </div>
-    <div class="dialog_div" v-html="article.content"></div>
+    <!-- <div class="dialog_div" v-html="article.content"></div> -->
+    <client-only>
+      <mavon-editor v-model="article.content" :subfield="false" defaultOpen="preview"
+	 :toolbarsFlag="false" :boxShadow="false" :previewBackground="'#ffffff'" :codeStyle="'atom-one-dark'" />
+    </client-only>
+    
   </div>
 </template>
 
@@ -14,11 +18,43 @@ import Article from '../components/article'
 export default {
   name: 'Detail',
   components: {
-    Article
+    Article,
   },
   data() {
     return {
-      article: {}
+      article: {},
+      markdownOption:{
+        bold: true, // 粗体
+        italic: true, // 斜体
+        header: true, // 标题
+        underline: true, // 下划线
+        strikethrough: true, // 中划线
+        mark: true, // 标记
+        superscript: true, // 上角标
+        subscript: true, // 下角标
+        quote: true, // 引用
+        ol: true, // 有序列表
+        ul: true, // 无序列表
+        link: true, // 链接
+        ishljs: true,
+        imagelink: true, // 图片链接
+        code: true, // code
+        table: true, // 表格
+        fullscreen: false, // 全屏编辑
+        readmodel: false, // 沉浸式阅读
+        htmlcode: true, // 展示html源码
+        help: true, // 帮助
+        undo: true, // 上一步
+        redo: true, // 下一步
+        trash: true, // 清空
+        save: true, // 保存（触发events中的save事件）
+        navigation: true, // 导航目录
+        alignleft: true, // 左对齐
+        aligncenter: true, // 居中
+        alignright: true, // 右对齐
+        subfield: false, // 单双栏模式
+        preview: false, // 预览
+      },
     }
   },
   async asyncData (content) {
@@ -43,6 +79,15 @@ export default {
 }
 </script>
 
+<style>
+pre {
+  padding: 0!important;
+}
+.v-show-content {
+  padding: 0!important;
+}
+</style>
+
 <style scoped>
   .title {
     font-size: 30px;
@@ -59,56 +104,11 @@ export default {
     object-fit: contain;
     margin: auto;
   }
-  .dialog_div {
-    width: 100%;
-  } 
-  .dialog_div >>> p {
-    color: #606266;
-    line-height: 1.8;
-    font-size: 15px;
-    margin-bottom: 8px;
+  .v-note-wrapper {
+    border: none;
   }
-  .dialog_div >>> ol {
-    background: #21252B;
-    border-radius: 5px;
-    box-shadow: 0 10px 30px 0 rgba(0,0,0,.4);
-    margin-bottom: 1.6em;
-    padding: 30px 0 10px 40px;
-    color: #666;
-    font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
-    overflow: auto;
-  }
-  .dialog_div >>> ol::before {
-    background: #fc625d;
-    border-radius: 50%;
-    box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
-    content: ' ';
-    height: 12px;
-    margin-top: -20px;
-    margin-left: -20px;
-    position: absolute;
-    width: 12px;
-  }
-  .dialog_div >>> ol li {
-    list-style-type: decimal;
-    background-color: black;
-    padding-left: 6px;
-    color: #ccc;
-    font-size: 14px;
-    font-family: Consolas,Monaco,"Andale Mono","Ubuntu Mono",monospace;
-  }
-  .dialog_div >>> img {
-    width: 100%;
-    max-height: 500px;
-    object-fit: contain;
-    margin: auto;
-  }
-  .dialog_div >>> h2 {
-    margin-bottom: 10px;
-  }
-  .dialog_div >>> .ql-video {
-    width: 100%;
-    height: 400px;
+  .v-note-wrapper .v-note-panel .v-note-show .v-show-content, .v-note-wrapper .v-note-panel .v-note-show .v-show-content-html {
+    padding: 0;
   }
   /* .dialog_div >>> .ql-video video {
     width: 100%;
