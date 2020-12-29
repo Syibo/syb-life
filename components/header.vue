@@ -9,7 +9,7 @@
           <!-- <div class="header_item">home</div> -->
           <div class="header_item" @click="goHome">code</div>
           <div class="header_item" @click="goLife">life</div>
-          <div class="header_item" @click="goAbout">about</div>
+          <!-- <div class="header_item" @click="goAbout">about</div> -->
         </div>
         <div class="header_right">
           <!-- <el-input
